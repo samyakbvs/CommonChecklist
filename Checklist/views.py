@@ -17,9 +17,8 @@ class login(APIView):
         user = auth.authenticate(username=request.POST['Username'],password=request.POST['Password'])
         if user is not None:
             auth.login(request, user)
-            return redirect('Account')
+            if user.is_staff:
+                return redirect('AccountCounselor')
+            else:
+                pass # Pandey code Student side here
         return redirect('Login')
-
-class account(APIView):
-    def get(self,request):
-        return render(request,'Checklist/account.html')
