@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+<h1>Add an Essay</h1>
+
+    <form class="" action="index.html" method="post">
+      {% csrf_token %}
+      <input type="text" name="name" value="" placeholder="Title of the Essay">
+      <input type="text" name="link" value="" placeholder="Link to the essay">
+      <input type="date" name="date" value="" placeholder="Deadline">
+      <input type="submit" name="submit" value="Submit">
+    </form>
+  </body>
+</html>

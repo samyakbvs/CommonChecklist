@@ -3,6 +3,7 @@ from django.urls import path,include
 from . import views
 from Counselor import urls
 
+
 urlpatterns = [
     path('',views.home.as_view(),name="Home"),
     path('login/',views.login.as_view(),name="Login"),

@@ -3,8 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    {% if error %}
+<h1>{{error}}</h1>
+<br>
+{% endif %}
   </head>
   <body>
     <h1>Signup</h1>
+    <form class="" action="{% url 'Signup' %}" method="post"><br>
+      {% csrf_token %}
+      <input type="text" name="username" value="" placeholder="username" required><br>
+      <input type="text" name="name" value="" placeholder="Full Name" required><br>
+      <input type="email" name="email" value="" placeholder="Email" required><br>
+      <input type="password" name="password" value="" placeholder="password" required><br>
+      <input type="password" name="verifyPassword" value="" placeholder="Confirm" required><br>
+      <input type="text" name="school" value="" placeholder="School Name" required><br>
+      <input name="tenth" type="number" value="" placeholder="10th Boards Score"><br>
+      <input name="sat" value="" placeholder="SAT"><br>
+      <input name="act" value="" placeholder="ACT"><br>
+      <input type="submit" name="submit" value="SignUp!" class="btn btn-primary">
+    </form>
   </body>
 </html>
