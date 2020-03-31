@@ -26,10 +26,26 @@
   </div>
   </nav>
   <div class="container" style="margin-top:50px;">
+    <form action="{% url 'AccountCounselor' %}" method="post">
+      {% csrf_token %}
+
+
+
+  <div class="form-group">
+    <!-- <label for="exampleInputEmail1">Email address</label> -->
+    <input name="query" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <button type="submit" class="btn btn-primary">Search</button>
+
+</form>
+<br>
     <ul>
-      <li><a href="#">Samyak Jain</a></li>
+      {% for student in students %}
+      <li><a href="{% url 'profile' student.id %}">{{ student.name }}</a></li>
+      {% endfor %}
+      <!-- <li><a href="#">Samyak Jain</a></li>
       <li><a href="#">Arjun Pandey</a></li>
-      <li><a href="#">Nirbhay Singh</a></li>
+      <li><a href="#">Nirbhay Singh</a></li> -->
     </ul>
 
   </div>

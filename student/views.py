@@ -1,16 +1,18 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from rest_framework.views import APIView
 from django.contrib import auth
-from Checklist.models import StudentProfile
+from .models import StudentProfile
 from django.contrib.auth.forms import UserChangeForm
 from .models import Essay
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 class ViewProfile(APIView):
     def get(self, request, user_id):
         prof = get_object_or_404(StudentProfile,pk=user_id)
-        return render(request, 'student/profile.html', {"profile": prof})
+        current_user  = get_object_or_404(User, studentprofile= prof)
+        return render(request, 'student/profile.html', {"current_user": current_user})
 class EditProfile(APIView):
 
     def get(self,request):
@@ -26,8 +28,8 @@ class EditProfile(APIView):
 class Essay(APIView):
 
     def get(self,request):
-        return render(request, 'student/essay.html')
-    
+        return render(request, 'student/essays.html')
+
     def post(self,request):
         if request.POST['name'] and request.POST['link'] and request.POST['date']:
             essay = Essay(user = request.user, link = request.POST['link'], name = request.POST['name'], date = request.POST['date'])

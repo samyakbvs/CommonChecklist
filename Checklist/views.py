@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from django.contrib import auth
 from django.core.validators import validate_email
 from django.contrib.auth.models import User
-from .models import StudentProfile
+from student.models import StudentProfile
 # Create your views here.
 class home(APIView):
     def get(self,request):
@@ -43,5 +43,5 @@ class login(APIView):
             if user.is_staff:
                 return redirect('AccountCounselor')
             else:
-                pass #Pandey code Student side here
+                return redirect('profile',user_id=user.studentprofile.id)
         return redirect('Login')
