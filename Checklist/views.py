@@ -28,9 +28,9 @@ class signup(APIView):
                 return render(request, 'Checklist/signup.html', {'error':'Username already exists'})
             except User.DoesNotExist:
                 user = User.objects.create_user(request.POST['username'], password= request.POST['password'])
-                profile = StudentProfile(user = user, email = request.POST['email'], name = request.POST['name'], school= request.POST['school'], boards = int(request.POST['tenth']), sat = request.POST['sat'], act =request.POST['act'])
+                profile = StudentProfile(user = user, email = request.POST['email'], name = request.POST['name'], school= request.POST['school'])
                 profile.save()
-                return render(request,'Checklist/login.html')
+                return render(request, 'student/studenthome.html')
         else:
             return render(request, 'Checklist/signup.html', {'error':'Passwords dont match'})
 class login(APIView):
@@ -43,5 +43,5 @@ class login(APIView):
             if user.is_staff:
                 return redirect('AccountCounselor')
             else:
-                return redirect('profile',user_id=user.studentprofile.id)
+                return render(request, 'student/studenthome.html')
         return redirect('Login')

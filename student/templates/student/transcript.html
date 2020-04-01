@@ -34,31 +34,22 @@
       </li>
     </ul>
   </div>
-</nav>
-    <h2>Welcome {{ profile.name }}</h2>
-    <h2>{{current_user.studentprofile.sat}}</h2>
-    <form class="" action="{% url 'profile' %}" method="post">
-{% csrf_token %}
-      <input type="text" name="username" id="username" value="" placeholder="Name">
-      <input type="email" name="email" id="email" value="" placeholder="Email">
-      <input type="text" name="school" id = "school" value="" placeholder="school">
-      <input type="submit" name="" value="">
-    </form>
+  </nav>
 
-    <button type="button" name="button"> <a href="{% url 'changePassword' %}">Change Password</a> </button>
+  {% for i in transcript.all %}
+  <h1>{{i.grade}}</h1>
+  {% endfor %}
+  <br> <br> <br>
+  {% if error %}
+  <h1>{{error}}</h1>
+  <br>
+  {% endif %}
+
+<form class="" action="{% url 'transcripts' %}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="text" name="grade" value="" placeholder="Class and Semester">
+  <input type="file" name="transcript" value="" placeholder="category">
+  <input type="submit" name="" value="Submit!">
+</form>
   </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script>
-
-  $( document ).ready(function() {
-      // after the page elements are all loaded, then run the script
-      // Set the input field with unique ID #email to a value
-      $("#email").val("{{profile.email}}");
-      // Set the input field with unique ID #name
-      $("#username").val("{{profile.name}}");
-      $("#school").val("{{profile.school}}");
-
-      });
-
-</script>
 </html>

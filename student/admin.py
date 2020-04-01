@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Essay,StudentProfile
+from .models import Essay,StudentProfile, SAT, ACT, Activity, Transcript, SubjectTest, LOR
 from Counselor.models import CounselorProfile
 # Register your models here.
 # admin.site.register(Essay)
@@ -25,9 +25,14 @@ class EssaysInline(admin.StackedInline):
     model = Essay
     can_delete = False
     verbose_name_plural = 'Essays'
-
 class UserAdmin(BaseUserAdmin):
     inlines = (StudentProfileInline,EssaysInline,CounselorProfileInline)
 
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
+admin.site.register(SAT)
+admin.site.register(ACT)
+admin.site.register(SubjectTest)
+admin.site.register(Activity)
+admin.site.register(Transcript)
+admin.site.register(LOR)
