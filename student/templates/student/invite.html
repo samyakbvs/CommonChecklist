@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Student Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
   </head>
   <body>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="{% url 'studentHome' %}">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,29 +19,30 @@
         <a class="nav-link" href="{% url 'viewEssay' %}">Essays</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'testing' %}">Standardised Testing</a>
+        <a class="nav-link" href="{% url 'viewTesting' %}">Standardised Testing</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'activity' %}">Activities</a>
+        <a class="nav-link" href="{% url 'viewActivity' %}">Activities</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'transcripts' %}">School Transcripts</a>
+        <a class="nav-link" href="{% url 'viewTranscripts' %}">School Transcripts</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'lor' %}">LORs</a>
+        <a class="nav-link" href="{% url 'viewLOR' %}">LORs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'invitations' %}">LORs</a>
       </li>
     </ul>
   </div>
   </nav>
-{% for i in activity %}
-{{i.name}} <br>
+<h1>Requests</h1>
+{% for i in req %}
+{{ i.counselor }}
+<form action="{% url 'acceptInvitation' i.token %}" method="post">
+  {% csrf_token %}
+<button type="submit" name="button">Accept</button>
+</form>
 {% endfor %}
-<br> <br> <br>
-{% if error %}
-<h1>{{error}}</h1>
-<br>
-{% endif %}
-
-<button type="button" class="btn btn-primary" name="button"> <a style="color:black;" href="{% url 'addactivity' %}"> Add Activity</a> </button>
   </body>
 </html>

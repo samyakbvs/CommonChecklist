@@ -42,8 +42,12 @@ class SubjectTest(models.Model):
 class Transcript(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     grade = models.CharField(max_length = 50)
-    transcript = models.FileField(upload_to= 'transcripts/')
+    transcripts = models.FileField(upload_to= 'transcripts/')
 class LOR(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     recommender = models.CharField(max_length = 200)
     lor = models.FileField(upload_to = 'lor/')
+class Invite(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    counselor_name = models.CharField(max_length = 200)
+    token = models.CharField(max_length = 11)

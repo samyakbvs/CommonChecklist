@@ -41,7 +41,7 @@
 <br>
     <ul>
       {% for student in students %}
-      <li><a href="{% url 'profile' student.id %}">{{ student.name }}</a></li>
+      <li>{{ student.name }}</li>
       {% endfor %}
       <!-- <li><a href="#">Samyak Jain</a></li>
       <li><a href="#">Arjun Pandey</a></li>

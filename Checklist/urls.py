@@ -6,9 +6,9 @@ from student import urls as urlsStudents
 
 
 urlpatterns = [
-    path('',views.home.as_view(),name="Home"),
-    path('login/',views.login.as_view(),name="Login"),
-    path('signup/',views.signup.as_view(),name="Signup"),
-    path('account/',include(urlsCounselors)),
+    path('',views.Home.as_view(),name="Home"),
+    path('login/',views.Login.as_view(),name="Login"),
+    path('signup/',views.Signup.as_view(),name="Signup"),
+    path('counselor/',include(urlsCounselors)),
     path('student/',include(urlsStudents))
 ]

@@ -20,16 +20,19 @@
         <a class="nav-link" href="{% url 'viewEssay' %}">Essays</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'testing' %}">Standardised Testing</a>
+        <a class="nav-link" href="{% url 'viewTesting' %}">Standardised Testing</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'activity' %}">Activities</a>
+        <a class="nav-link" href="{% url 'viewActivity' %}">Activities</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'transcripts' %}">School Transcripts</a>
+        <a class="nav-link" href="{% url 'viewTranscripts' %}">School Transcripts</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'lor' %}">LORs</a>
+        <a class="nav-link" href="{% url 'viewLOR' %}">LORs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'invitations' %}">LORs</a>
       </li>
     </ul>
   </div>
@@ -40,7 +43,7 @@
         <h1>SAT</h1>
         <h2></h2>
       {{sat}}
-        <form class="" action="{% url 'AddSatScore' %}" method="post" enctype="multipart/form-data">
+        <form class="" action="{% url 'addSatScore' %}" method="post" enctype="multipart/form-data">
           {% csrf_token %}
           <input type="date" name="date1" value="">
           <input type="file" name="transcript1" value="Transcript">
@@ -52,7 +55,7 @@
       <div class="col-lg-6">
         <h1>ACT</h1>
         <h2></h2>
-        <form class="" action="{% url  'AddActScore' %}" method="post" enctype="multipart/form-data">
+        <form class="" action="{% url  'addActScore' %}" method="post" enctype="multipart/form-data">
           {% csrf_token %}
           <input type="date" name="date2" value="">
           <input type="file" name="transcript2" value="Transcript">
@@ -65,7 +68,7 @@
       <div class="col-lg-6">
         <h1>SAT</h1>
         <h2></h2>
-        <form class="" action="{% url 'AddSubjectScore' %}" method="post" enctype="multipart/form-data">
+        <form class="" action="{% url 'addSubjectScore' %}" method="post" enctype="multipart/form-data">
           {% csrf_token %}
           <input type="date" name="date3" value="">
           <input type="file" name="transcript3" value="Transcript">

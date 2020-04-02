@@ -18,33 +18,32 @@
         <a class="nav-link" href="{% url 'viewEssay' %}">Essays</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'testing' %}">Standardised Testing</a>
+        <a class="nav-link" href="{% url 'viewTesting' %}">Standardised Testing</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'activity' %}">Activities</a>
+        <a class="nav-link" href="{% url 'viewActivity' %}">Activities</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'transcripts' %}">School Transcripts</a>
+        <a class="nav-link" href="{% url 'viewTranscripts' %}">School Transcripts</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'lor' %}">LORs</a>
+        <a class="nav-link" href="{% url 'viewLOR' %}">LORs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'invitations' %}">LORs</a>
       </li>
     </ul>
   </div>
   </nav>
+{% for i in activity %}
+{{i.name}} <br>
+{% endfor %}
+<br> <br> <br>
+{% if error %}
+<h1>{{error}}</h1>
+<br>
+{% endif %}
 
-  {% for i in transcript.all %}
-  <h1>Grade: {{i.grade}}</h1>
-  {% endfor %}
-
-  <br> <br> <br>
-  {% if error %}
-
-  <h1>{{error}}</h1>
-  <br>
-  {% endif %}
-
-  <button type="button" name="button"> <a href="{% url 'addtranscript' %}">Add a Transcript</a> </button>
-
+<button type="button" class="btn btn-primary" name="button"> <a style="color:black;" href="{% url 'addActivity' %}"> Add Activity</a> </button>
   </body>
 </html>

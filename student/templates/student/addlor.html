@@ -18,21 +18,24 @@
         <a class="nav-link" href="{% url 'viewEssay' %}">Essays</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'testing' %}">Standardised Testing</a>
+        <a class="nav-link" href="{% url 'viewTesting' %}">Standardised Testing</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'activity' %}">Activities</a>
+        <a class="nav-link" href="{% url 'viewActivity' %}">Activities</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'transcripts' %}">School Transcripts</a>
+        <a class="nav-link" href="{% url 'viewTranscripts' %}">School Transcripts</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'lor' %}">LORs</a>
+        <a class="nav-link" href="{% url 'viewLOR' %}">LORs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'invitations' %}">LORs</a>
       </li>
     </ul>
   </div>
   </nav>
-<form class="" action="{% url 'addlor' %}" method="post" enctype="multipart/form-data">
+<form class="" action="{% url 'addLOR' %}" method="post" enctype="multipart/form-data">
   {% csrf_token %}
   <input type="text" name="recommender" value="" placeholder="recommender">
   <input type="file" name="transcript" value="" placeholder="category">

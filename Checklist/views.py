@@ -5,11 +5,11 @@ from django.core.validators import validate_email
 from django.contrib.auth.models import User
 from student.models import StudentProfile
 # Create your views here.
-class home(APIView):
+class Home(APIView):
     def get(self,request):
         return render(request,'Checklist/homepage.html')
 
-class signup(APIView):
+class Signup(APIView):
     def get(self,request):
         return render(request,'Checklist/signup.html')
     def post(self,request):
@@ -30,10 +30,10 @@ class signup(APIView):
                 user = User.objects.create_user(request.POST['username'], password= request.POST['password'])
                 profile = StudentProfile(user = user, email = request.POST['email'], name = request.POST['name'], school= request.POST['school'])
                 profile.save()
-                return render(request, 'student/studenthome.html')
+                return render(request, 'student/studentHome.html')
         else:
             return render(request, 'Checklist/signup.html', {'error':'Passwords dont match'})
-class login(APIView):
+class Login(APIView):
     def get(self,request):
         return render(request,'Checklist/login.html')
     def post(self,request):
@@ -43,5 +43,5 @@ class login(APIView):
             if user.is_staff:
                 return redirect('AccountCounselor')
             else:
-                return render(request, 'student/studenthome.html')
+                return redirect('studentHome')
         return redirect('Login')
