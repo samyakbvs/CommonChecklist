@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path,include
 from . import views
 from Counselor import urls as urlsCounselors
-from student import urls as urlsStudents
+from Student import urls as urlsStudents
 
 
 urlpatterns = [

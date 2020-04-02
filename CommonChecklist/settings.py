@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Checklist',
     'Counselor',
-    'student',
+    'Student',
     'rest_framework'
 ]
 

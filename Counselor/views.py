@@ -1,8 +1,7 @@
 from django.shortcuts import render,redirect
 from rest_framework.views import APIView
 from django.contrib import auth
-from student.models import StudentProfile
-from student.models import Invite
+from Student.models import StudentProfile,Invite
 from django.contrib.auth.models import User
 import random
 import string

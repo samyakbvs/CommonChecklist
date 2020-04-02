@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from django.contrib import auth
 from django.core.validators import validate_email
 from django.contrib.auth.models import User
-from student.models import StudentProfile
+from Student.models import StudentProfile
 # Create your views here.
 class Home(APIView):
     def get(self,request):
