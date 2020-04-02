@@ -41,7 +41,7 @@ class SubjectTest(models.Model):
     transcripts = models.FileField(upload_to = 'sat2/')
 class Transcript(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    grade = models.IntegerField()
+    grade = models.CharField(max_length = 50)
     transcript = models.FileField(upload_to= 'transcripts/')
 class LOR(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

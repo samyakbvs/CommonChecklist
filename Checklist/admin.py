@@ -20,7 +20,6 @@ class EssaysInline(admin.StackedInline):
     model = Essay
     can_delete = False
     verbose_name_plural = 'Essays'
-
 class UserAdmin(BaseUserAdmin):
     inlines = (StudentProfileInline,EssaysInline,CounselorProfileInline)
 

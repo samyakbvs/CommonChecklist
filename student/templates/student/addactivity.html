@@ -32,16 +32,17 @@
     </ul>
   </div>
   </nav>
-
-{% for i in lor.all %}
-<h1>{{i.recommender}}</h1>
-<iframe src="{{i.lor.url}}" width="" height=""></iframe>
-{% endfor %}
-<br> <br> <br>
-{% if error %}
-<h1 style="color:black;">{{error}}</h1>
-<br>
-{% endif %}
-<button type="button" name="button"> <a style="color:black;" href="{% url 'addlor' %}"> ADD LOR</a></button>
+<form class="" action="{% url 'addactivity' %}" method="post">
+  {% csrf_token %}
+  <input type="text" name="name" value="" placeholder="Name of Org.">
+  <input type="text" name="category" value="" placeholder="category">
+  <input type="text" name="grades" value="" placeholder="Grades">
+  <input type="text" name="position" value="">
+  <input type="number" name="hoursperweek" value="" placeholder="Hours Per Week">
+  <input type="number" name="weeksperyear" value="" placeholder="weeks per year">
+  <input type="text" name="awards" value="" placeholder="awards">
+  <input type="text" name="description" value="" placeholder="description">
+  <input type="submit" name="" value="Submit!">
+</form>
   </body>
 </html>

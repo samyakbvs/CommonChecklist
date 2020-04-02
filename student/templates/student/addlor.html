@@ -32,16 +32,11 @@
     </ul>
   </div>
   </nav>
-
-{% for i in lor.all %}
-<h1>{{i.recommender}}</h1>
-<iframe src="{{i.lor.url}}" width="" height=""></iframe>
-{% endfor %}
-<br> <br> <br>
-{% if error %}
-<h1 style="color:black;">{{error}}</h1>
-<br>
-{% endif %}
-<button type="button" name="button"> <a style="color:black;" href="{% url 'addlor' %}"> ADD LOR</a></button>
+<form class="" action="{% url 'addlor' %}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="text" name="recommender" value="" placeholder="recommender">
+  <input type="file" name="transcript" value="" placeholder="category">
+  <input type="submit" name="" value="Submit!">
+</form>
   </body>
 </html>

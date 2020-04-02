@@ -32,16 +32,12 @@
     </ul>
   </div>
   </nav>
+<form class="" action="{% url 'addtranscript' %}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="text" name="grade" value="" placeholder="Class and Semester">
+  <input type="file" name="transcript" value="" placeholder="category">
+  <input type="submit" name="" value="Submit!">
+</form>
 
-{% for i in lor.all %}
-<h1>{{i.recommender}}</h1>
-<iframe src="{{i.lor.url}}" width="" height=""></iframe>
-{% endfor %}
-<br> <br> <br>
-{% if error %}
-<h1 style="color:black;">{{error}}</h1>
-<br>
-{% endif %}
-<button type="button" name="button"> <a style="color:black;" href="{% url 'addlor' %}"> ADD LOR</a></button>
   </body>
 </html>
