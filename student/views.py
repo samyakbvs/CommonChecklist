@@ -14,10 +14,10 @@ from datetime import datetime
 class Home(APIView):
     def get(self,request):
         profile = StudentProfile.objects.get(user = request.user)
-        return render(request, 'student/studentHome.html',{"profile": profile})
+        return render(request, 'Checklist/studentHome.html',{"profile": profile})
 class ChangePassword(APIView):
     def get(self,request):
-        return render(request, 'student/changePassword.html')
+        return render(request, 'Checklist/changePassword.html')
     def post(self, request):
         user = User.objects.get(username = request.user)
         if user.check_password(request.POST['current']):
@@ -27,13 +27,13 @@ class ChangePassword(APIView):
                 return redirect('studentHome')
 
             else:
-                return render(request, 'student/changePassword.html', {"error":"Passwords don't match"})
+                return render(request, 'Checklist/changePassword.html', {"error":"Passwords don't match"})
         else:
-            return render(request, 'student/changePassword.html', {"error":"Current Password is not correct"})
+            return render(request, 'Checklist/changePassword.html', {"error":"Current Password is not correct"})
 
 class AddEssay(APIView):
     def get(self,request):
-        return render(request, 'student/addEssay.html')
+        return render(request, 'Checklist/addEssay.html')
     def post(self,request):
 
         if request.POST['name'] and str(request.POST['link']):
@@ -42,19 +42,19 @@ class AddEssay(APIView):
             essay.save()
             return redirect('studentHome')
         else:
-            return render(request, 'student/addEssay.html')
+            return render(request, 'Checklist/addEssay.html')
 
 class ViewEssay(APIView):
     def get(self, request):
         try:
             essays = Essay.objects.filter(user=request.user)
-            return render(request, 'student/viewEssays.html',{"essays":essays})
+            return render(request, 'Checklist/viewEssays.html',{"essays":essays})
         except:
-            return render(request, 'student/viewEssays.html', {"error": "You Currently have no Essays"})
+            return render(request, 'Checklist/viewEssays.html', {"error": "You Currently have no Essays"})
 
 class AddTesting(APIView):
     def get(self, request):
-        return render(request, 'student/addScores.html')
+        return render(request, 'Checklist/addScores.html')
     def post(self,request):
         test = Testing(user=request.user,type=request.POST['type'],date=request.POST['date'],transcripts = request.FILES['transcript'])
         test.save()
@@ -62,19 +62,19 @@ class AddTesting(APIView):
 class ViewTesting(APIView):
     def get(self,request):
         tests = Testing.objects.filter(user=request.user)
-        return render(request, 'student/viewScores.html', {"tests":tests})
+        return render(request, 'Checklist/viewScores.html', {"tests":tests})
     def post(self,request):
         pass
 class ViewActivity(APIView):
     def get(self, request):
         try:
             activity = Activity.objects.filter(user = request.user)
-            return render(request, 'student/viewActivity.html', {"activity":activity})
+            return render(request, 'Checklist/viewActivity.html', {"activity":activity})
         except:
-            return render(request, 'student/viewActivity.html', {"error":"No activities yet"})
+            return render(request, 'Checklist/viewActivity.html', {"error":"No activities yet"})
 class AddActivity(APIView):
     def get(self, request):
-        return render(request, 'student/addActivity.html')
+        return render(request, 'Checklist/addActivity.html')
     def post(self,request):
         activity = Activity(user = request.user, category = request.POST['category'], grades = request.POST['grades'], position =request.POST['position'], hourperweek = request.POST['hoursperweek'], weeksperyear =request.POST['weeksperyear'], awards = request.POST['awards'], description = request.POST['description'])
         activity.save()
@@ -83,12 +83,12 @@ class ViewTranscript(APIView):
     def get(self,request):
         try:
             transcript = Transcript.objects.filter(user = request.user)
-            return render(request, 'student/viewTranscripts.html', {"transcript": transcript})
+            return render(request, 'Checklist/viewTranscripts.html', {"transcript": transcript})
         except:
-            return render(request, 'student/viewTranscripts.html', {"error":"No transcripts uploaded yet"})
+            return render(request, 'Checklist/viewTranscripts.html', {"error":"No transcripts uploaded yet"})
 class AddTranscript(APIView):
     def get(self,request):
-        return render(request, 'student/addTranscript.html')
+        return render(request, 'Checklist/addTranscript.html')
     def post(self,request):
         transcript = Transcript(user = request.user, grade = request.POST['grade'], transcripts = request.FILES['transcript'])
         transcript.save()
@@ -97,12 +97,12 @@ class ViewLOR(APIView):
     def get(self,request):
         try:
             lor = LOR.objects.filter(user = request.user)
-            return render(request, 'student/viewLOR.html', {"lor": lor})
+            return render(request, 'Checklist/viewLOR.html', {"lor": lor})
         except:
-            return render(request, 'student/viewLOR.html', {"error":"No transcripts uploaded yet"})
+            return render(request, 'Checklist/viewLOR.html', {"error":"No transcripts uploaded yet"})
 class AddLOR(APIView):
     def get(self, request):
-        return render(request, 'student/addLOR.html')
+        return render(request, 'Checklist/addLOR.html')
     def post(self,request):
         lor = LOR(user = request.user, recommender = request.POST['recommender'],email=request.POST['email'],post=request.POST['post'], lor = request.FILES['transcript'])
         lor.save()
@@ -111,7 +111,7 @@ class AddLOR(APIView):
 class CounselorInvite(APIView):
     def get(self,request):
         req = Invite.objects.filter(user=request.user)
-        return render(request,'student/invite.html',{'req':req})
+        return render(request,'Checklist/invite.html',{'req':req})
 
 class AcceptInvite(APIView):
     def get(self,request,token):

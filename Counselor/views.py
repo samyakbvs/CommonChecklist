@@ -13,7 +13,7 @@ class AllStudent(APIView):
     def get(self,request):
         current_user = request.user
         students  = current_user.counselorprofile.students.all()
-        return render(request,'Counselor/students.html',{"students":students})
+        return render(request,'Checklist/students.html',{"students":students})
     def post(self,request):
         query = request.POST['query']
         return redirect("SearchStudent",query)
@@ -22,12 +22,12 @@ class Search(APIView):
     def get(self,request,query):
         current_user = request.user
         students  = current_user.counselorprofile.students.filter(name__contains=query)
-        return render(request,'Counselor/students.html',{"students":students})
+        return render(request,'Checklist/students.html',{"students":students})
 
 
 class AddStudent(APIView):
     def get(self,request):
-        return render(request,'Counselor/addStudents.html')
+        return render(request,'Checklist/addStudents.html')
     def post(self,request):
         query = request.POST['query']
         return redirect("SearchAddStudent",query)
@@ -36,7 +36,7 @@ class SearchAddStudent(APIView):
     def get(self,request,query):
         # current_user = request.user
         students  =  StudentProfile.objects.filter(name__contains=query)
-        return render(request,'Counselor/addStudents.html',{"students":students})
+        return render(request,'Checklist/addStudents.html',{"students":students})
 
 class InviteStudent(APIView):
     def get(self,request,stud):
