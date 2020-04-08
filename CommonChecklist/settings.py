@@ -88,8 +88,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'kepler_db',
-        'USER': 'kepler',
-        # 'USER': 'samyakbvs',
+        # 'USER': 'kepler',
+        'USER': 'samyakbvs',
         'PASSWORD': 'kepler69',
         'HOST': 'localhost',
         'PORT': '5432',
