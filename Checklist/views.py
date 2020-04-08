@@ -30,7 +30,7 @@ class Signup(APIView):
                 user = User.objects.create_user(request.POST['username'], password= request.POST['password'])
                 profile = StudentProfile(user = user, email = request.POST['email'], name = request.POST['name'], school= request.POST['school'])
                 profile.save()
-                return render(request, 'student/studentHome.html')
+                return redirect('studentHome')
         else:
             return render(request, 'Checklist/signup.html', {'error':'Passwords dont match'})
 class Login(APIView):

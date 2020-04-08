@@ -14,7 +14,7 @@ from datetime import datetime
 class Home(APIView):
     def get(self,request):
         profile = StudentProfile.objects.get(user = request.user)
-        return render(request, 'Checklist/studentHome.html',{"profile": profile})
+        return render(request, 'Checklist/studHome.html',{"profile": profile})
 class ChangePassword(APIView):
     def get(self,request):
         return render(request, 'Checklist/changePassword.html')

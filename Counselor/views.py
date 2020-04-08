@@ -56,4 +56,4 @@ class InviteStudent(APIView):
 
 class CounselorHome(APIView):
     def get(self,request):
-        return render(request,'Checklist/counselorHome.html')
+        return render(request,'Checklist/counHome.html')
