@@ -1,0 +1,12 @@
+:root{
+	--main-accent-color:#019875;
+}
+nav{
+	background-color: var(--main-accent-color)!important;
+}
+h2,h4{
+	color: var(--main-accent-color)!important;
+}
+p{
+	color: gray;
+}

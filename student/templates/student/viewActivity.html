@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -45,5 +45,90 @@
 {% endif %}
 
 <button type="button" class="btn btn-primary" name="button"> <a style="color:black;" href="{% url 'addActivity' %}"> Add Activity</a> </button>
+  </body>
+</html> -->
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'super.css' %}">
+		<link rel="stylesheet" href="{% static 'footer.css' %}">
+    <title>View activities</title>
+  </head>
+	<style media="screen">
+		table{
+			width: 100%;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top:20px;
+		}
+		table, th, td {
+			padding:10px;
+		}
+		a{
+			color:#866ec7!important;
+		}
+		th{
+			background-color:#866ec7!important;
+			color:white;
+		}
+		h4{
+			margin-top: 20px;
+			font-size: 15px;
+			color:gray;
+		}
+		a{
+			margin-top: 20px!important;
+			font-style: italic;
+		}
+	</style>
+  <body>
+    <div class="main-content">
+			<h3> View activities </h3>
+			<div style="overflow-x:auto;">
+			  <table>
+			    <tr>
+						<th> Activity type </th>
+						<th> Name or position </th>
+            <th> Awards </th>
+						<th> Hours/week </th>
+						<th> Weeks/year </th>
+						<th> Grades of participation </th>
+					</tr>
+          {% for i in activity %}
+					<tr>
+
+						<td> {{ i.category }} </td>
+            <td>{{ i.position }}</td>
+            <td> {{ i.awards }}</td>
+						<td> {{ i.hourperweek }} </td>
+						<td> {{ i.weeksperyear }} </td>
+						<td> {{ i.grades }} </td>
+					</tr>
+          {% endfor %}
+			  </table>
+			</div>
+			<h4> Here are some carefully curated links related to the Common Application Activities Section </h4>
+			<a href="https://blog.collegevine.com/how-to-fill-out-the-common-app-activities-section/"> CollegeVine </a> <br>
+			<a href="https://www.shemmassianconsulting.com/blog/common-app-activities-section"> Shemmassian Consulting </a> <br>
+			<a href="https://www.collegeessayguy.com/blog/guide-college-activities-list-common-app-example-application"> College Essay Guy </a> <br>
+			<h4> Happy Applying , <br> Team Common Checklist </h4>
+		</div>
+		<!-- Site footer -->
+    <footer class="site-footer">
+			Common Checklist by Kepler Developers
+    </footer>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>

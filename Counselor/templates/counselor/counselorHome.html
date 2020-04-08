@@ -1,0 +1,134 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Common Checklist</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+		<link rel="stylesheet" href="{% static 'footer.css' %}">
+  </head>
+	<style media="screen">
+
+		h3{
+			font-size: 20px;
+			color:gray;
+		}
+		.timer-title{
+			color:gray;
+		}
+		p{
+			color:#6749b9;
+		}
+		/* #866ec7 */
+		h1{
+			color:gray;
+		}
+
+
+	</style>
+  <body>
+
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+	          <i class="fa fa-bars"></i>
+	          <span class="sr-only">Toggle Menu</span>
+	        </button>
+        </div>
+				<div class="p-4 pt-5">
+		  		<h1><a href="index.html" class="logo">Common Checklist</a></h1>
+	        <ul class="list-unstyled components mb-5">
+						<li>
+							<a href="{% url 'AccountCounselor' %}"> View your students </a>
+						</li>
+						<li>
+							<a href="{% url 'AddStudents' %}"> Add students </a>
+						</li>
+            <li>
+              <a href="{% url 'logout' %}"> Logout </a>
+            </li>
+	        </ul>
+
+
+
+
+
+	      </div>
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5">
+				<h1> Counsellor Dashboard </h1>
+				<h4> Important deadlines </h4>
+				<h5 class="timer-title"> SAT 2020 Testing dates (subject to change) </h5>
+				August 29, 2020   <p id="t4"></p>
+				October 3, 2020	<p id="t5"></p>
+				November 7, 2020 <p id="t6"></p>
+				December 5, 2020 <p id="t7"></p>
+				<h5 class="timer-title"> Early Decision Deadline - November 1st, 2020 </h5>
+				<p id="t1"></p>
+				<h5 class="timer-title"> Early Action (GATech) and Oxbridge Deadline - October 15th, 2020 </h5>
+				<p id="t3"></p>
+				<h5 class="timer-title"> Regular Decision Deadline - January 1st, 2021 </h5>
+				<p id="t2"></p>
+
+
+
+      </div>
+		</div>
+
+		<script>
+		function countdown(dateStr,id){
+			// Set the date we're counting down to
+			var countDownDate = new Date(dateStr).getTime();
+
+			// Update the count down every 1 second
+			var x = setInterval(function() {
+
+			  // Get today's date and time
+			  var now = new Date().getTime();
+
+			  // Find the distance between now and the count down date
+			  var distance = countDownDate - now;
+
+			  // Time calculations for days, hours, minutes and seconds
+			  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+			  // Display the result in the element with id="demo"
+			  document.getElementById(id).innerHTML = days + "d " + hours + "h "
+			  + minutes + "m " + seconds + "s ";
+
+			  // If the count down is finished, write some text
+			  if (distance < 0) {
+			    clearInterval(x);
+			    document.getElementById(id).innerHTML = "EXPIRED";
+			  }
+			}, 1000);
+		}
+		countdown("Nov 1, 2020 00:00:00","t1")
+		countdown("Jan 1, 2021 00:00:00","t2")
+		countdown("Oct 15, 2020 00:00:00","t3")
+		countdown("Aug 29, 2020 00:00:00","t4")
+		countdown("Oct 3, 2020 00:00:00","t5")
+		countdown("Nov 7, 2020 00:00:00","t6")
+		countdown("Dec 5, 2020 00:00:00","t7")
+
+		</script>
+
+
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>

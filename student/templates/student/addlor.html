@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -41,5 +41,97 @@
   <input type="file" name="transcript" value="" placeholder="category">
   <input type="submit" name="" value="Submit!">
 </form>
+  </body>
+</html> -->
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'super.css' %}">
+		<link rel="stylesheet" href="{% static 'footer.css' %}">
+    <title>Add recommender</title>
+  </head>
+	<style media="screen">
+		.act-form{
+			width:auto;
+			height:auto;
+			padding:30px;
+		}
+		input{
+			padding:10px;
+			width:90%;
+			margin-top:10px;
+			margin-bottom: 10px;
+
+
+  			margin-top:10px;
+  			margin-bottom: 10px;
+  			background:white;
+  			width: 100%;
+  			padding: 10px;
+  			border:1px solid #866ec7!important;
+  			color:#866ec7;
+
+  			border-radius: 5px;
+
+		}
+		button{
+			margin-top:20px;
+			border:none;
+			background:none;
+			padding:10px;
+			color:#866ec7;
+			font-size: 30px;
+		}
+		.text-inp{
+				border:1px solid #866ec7;
+				border-radius:5px;
+		}
+		.text-inp::placeholder{
+			color:#866ec7;
+		}
+		.prompt{
+			color:gray;
+			margin-bottom: 10px;
+			font-style:italic;
+			margin-top:10px;
+		}
+
+	</style>
+  <body>
+    <div class="main-content">
+			<h3> Add recommender </h3>
+			<div class="act-form">
+        <form class="" action="{% url 'addLOR' %}" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+
+				<p class="prompt"> Enter recommender name </p>
+				<input name="recommender" type="text" class="text-inp" placeholder="Enter here">
+				<p class="prompt"> Enter recommender email </p>
+				<input name="email" type="email" class="text-inp" placeholder="Enter here">
+				<p class="prompt"> Enter recommender post </p>
+				<input name="post" type="text" class="text-inp" placeholder="Enter here">
+        <p class="prompt"> Select a file/screenshot to upload </p>
+
+
+        <input type="file" name="transcript" id="myfile" >
+				<br>
+				<button style="margin-bottom:50px;" type="submit" name="button">Submit</button>
+              </form>
+			</div>
+		</div>
+		<footer class="site-footer">
+			Common Checklist by Kepler Developers
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>

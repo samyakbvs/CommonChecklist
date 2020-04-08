@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from django.contrib import auth
 from django.core.validators import validate_email
 from django.contrib.auth.models import User
-from Student.models import StudentProfile
+from student.models import StudentProfile
 # Create your views here.
 class Home(APIView):
     def get(self,request):
@@ -41,7 +41,12 @@ class Login(APIView):
         if user is not None:
             auth.login(request, user)
             if user.is_staff:
-                return redirect('AccountCounselor')
+                return redirect('counselorHome')
             else:
                 return redirect('studentHome')
         return redirect('Login')
+
+class Logout(APIView):
+    def get(self,request):
+        auth.logout(request)
+        return redirect('Home')

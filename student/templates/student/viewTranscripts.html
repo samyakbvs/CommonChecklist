@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -48,5 +48,79 @@
 
   <button type="button" name="button"> <a href="{% url 'addTranscript' %}">Add a Transcript</a> </button>
 
+  </body>
+</html> -->
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'super.css' %}">
+		<link rel="stylesheet" href="{% static 'footer.css' %}">
+    <title>View transcripts</title>
+  </head>
+	<style media="screen">
+	table{
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top:20px;
+
+	}
+	table, th, td {
+		padding:10px;
+	}
+	a{
+		color:#866ec7!important;
+	}
+	th{
+		background-color:#866ec7!important;
+		color:white;
+	}
+	h4{
+		margin-top: 20px;
+		font-size: 15px;
+		color:gray;
+	}
+	a{
+		margin-top: 20px!important;
+		font-style: italic;
+		color:#866ec7;
+	}
+
+	</style>
+  <body>
+    <div class="main-content">
+			<h3> View transcripts </h3>
+			<div style="overflow-x:auto;">
+			  <table>
+			    <tr>
+						<th> Grade </th>
+						<th> Transcript </th>
+					</tr>
+          {% for i in transcript  %}
+					<tr>
+						<td> {{ i.grade }} </td>
+
+						<td> <a href="{{ i.transcripts.url }}"> File </a> </td>
+					</tr>
+          {% endfor %}
+			  </table>
+			</div>
+
+		</div>
+		<footer class="site-footer">
+			Common Checklist by Kepler Developers
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>

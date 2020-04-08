@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from rest_framework.views import APIView
 from django.contrib import auth
-from Student.models import StudentProfile,Invite
+from student.models import StudentProfile,Invite
 from django.contrib.auth.models import User
 import random
 import string
@@ -39,14 +39,21 @@ class SearchAddStudent(APIView):
         return render(request,'Counselor/addStudents.html',{"students":students})
 
 class InviteStudent(APIView):
-    def post(self,request,stud):
-        student = StudentProfile.objects.get(name=stud)
+    def get(self,request,stud):
+        # student = StudentProfile.objects.get(name=stud)
         current_user = request.user
-        student_user = User.objects.get(studentprofile=student)
+        student_user = User.objects.get(username=stud)
+        print(stud)
         req = Invite(user=student_user,counselor_name = current_user.counselorprofile.name,token=self.randomString())
+
         req.save()
+
         return redirect('AccountCounselor')
 
     def randomString(self,stringLength=10):
         letters = string.ascii_lowercase
         return ''.join(random.choice(letters) for i in range(stringLength))
+
+class CounselorHome(APIView):
+    def get(self,request):
+        return render(request,'Counselor/counselorHome.html')

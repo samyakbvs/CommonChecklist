@@ -1,0 +1,149 @@
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'super.css' %}">
+		<link rel="stylesheet" href="{% static 'footer.css' %}">
+    <title>View activities</title>
+  </head>
+	<style media="screen">
+		body{
+			height:auto;
+			overflow-y:auto;
+		}
+		.main-content{
+			overflow-y:auto;
+		}
+		table{
+			width: 100%;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top:20px;
+			overflow-y:auto;
+		}
+		table, th, td {
+			padding:10px;
+		}
+		a{
+			color:#866ec7!important;
+		}
+		th{
+			background-color:#866ec7!important;
+			color:white;
+		}
+		h4{
+			margin-top: 20px;
+			font-size: 15px;
+			color:gray;
+		}
+		a{
+			margin-top: 20px!important;
+			font-style: italic;
+		}
+		h5{
+			font-size:25px;
+			color:gray;
+			margin-top:20px;
+		}
+	</style>
+  <body>
+    <div class="main-content">
+			<h3> View profile </h3>
+      <br>
+			<h5> Essays </h5>
+			<div style="overflow-x:auto;">
+			  <table>
+			    <tr>
+						<th> Draft number </th>
+						<th> Link </th>
+						<th> Deadline </th>
+					</tr>
+					<tr>
+						<td>  </td>
+						<td> <a href="samplelink.com"> Go to link </a> </td>
+						<td> 1st November, 2020 </td>
+					</tr>
+			  </table>
+			</div>
+			<h5> Activities </h5>
+			<div style="overflow-x:auto;">
+			  <table>
+			    <tr>
+						<th> Activity type </th>
+						<th> Name and position </th>
+						<th> Hours/week </th>
+						<th> Weeks/year </th>
+						<th> Grades of participation </th>
+					</tr>
+					<tr>
+						<td> Career-oriented </td>
+						<td> Kepler Developers </td>
+						<td> 20 </td>
+						<td> 20 </td>
+						<td> 10,11,12 </td>
+					</tr>
+			  </table>
+			</div>
+			<h5> Recommenders </h5>
+			<div style="overflow-x:auto;">
+			  <table>
+			    <tr>
+						<th>  Name</th>
+						<th> Email </th>
+						<th> Post </th>
+					</tr>
+					<tr>
+						<td> Bhawani Ji </td>
+						<td> Lorem ipsum dolor </td>
+						<td> Physics HoD </td>
+					</tr>
+			  </table>
+			</div>
+			<h5> Scores </h5>
+			<div style="overflow-x:auto;">
+			  <table>
+			    <tr>
+						<th> Test type</th>
+						<th> Date given </th>
+						<th> File </th>
+					</tr>
+					<tr>
+						<td> SAT </td>
+						<td> 7/12/2019 </td>
+						<td> <a href="www.linktophoto.com"> Here </a> </td>
+					</tr>
+			  </table>
+			</div>
+			<h5> View transcripts </h5>
+			<div style="overflow-x:auto;">
+			  <table>
+			    <tr>
+						<th> Grade </th>
+						<th> Semester </th>
+						<th> File </th>
+					</tr>
+					<tr>
+						<td> 9th Grade </td>
+						<td> First semester </td>
+						<td> <a href="www.linktophoto.com"> Here </a> </td>
+					</tr>
+			  </table>
+			</div>
+		</div>
+		<!-- Site footer -->
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

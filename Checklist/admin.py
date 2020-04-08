@@ -1,5 +1,6 @@
 from django.contrib import admin
-from Student.models import Essay,StudentProfile, SAT, ACT, Activity,Invite, Transcript, SubjectTest, LOR
+# from student.models import Essay,StudentProfile, SAT, ACT, Activity,Invite, Transcript, SubjectTest, LOR
+from student.models import Essay,StudentProfile, Activity,Invite, Transcript, LOR,Testing
 from Counselor.models import CounselorProfile
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
@@ -21,20 +22,26 @@ class EssaysInline(admin.TabularInline):
     can_delete = False
     verbose_name_plural = 'Essays'
 
-class SATInline(admin.TabularInline):
-    model = SAT
-    can_delete = False
-    verbose_name_plural = 'SATs'
+# class SATInline(admin.TabularInline):
+#     model = SAT
+#     can_delete = False
+#     verbose_name_plural = 'SATs'
+#
+# class ACTInline(admin.TabularInline):
+#     model = ACT
+#     can_delete = False
+#     verbose_name_plural = 'ACTs'
+#
+# class SubjectTestInline(admin.TabularInline):
+#     model = SubjectTest
+#     can_delete = False
+#     verbose_name_plural = 'SubjectTests'
 
-class ACTInline(admin.TabularInline):
-    model = ACT
+class TestingInLine(admin.TabularInline):
+    model = Testing
     can_delete = False
-    verbose_name_plural = 'ACTs'
+    verbose_name_plural = 'tests'
 
-class SubjectTestInline(admin.TabularInline):
-    model = SubjectTest
-    can_delete = False
-    verbose_name_plural = 'SubjectTests'
 
 class ActivityInline(admin.TabularInline):
     model = Activity
@@ -57,7 +64,8 @@ class InviteInline(admin.TabularInline):
     verbose_name_plural = 'Invites'
 
 class UserAdmin(BaseUserAdmin):
-    inlines = (StudentProfileInline,CounselorProfileInline,EssaysInline,SATInline,ACTInline,SubjectTestInline,TranscriptInline,LORInline,InviteInline)
+    # inlines = (StudentProfileInline,CounselorProfileInline,EssaysInline,ActivityInline,SATInline,ACTInline,SubjectTestInline,TranscriptInline,LORInline,InviteInline)
+    inlines = (StudentProfileInline,CounselorProfileInline,EssaysInline,TestingInLine,TranscriptInline,LORInline,InviteInline)
 
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
