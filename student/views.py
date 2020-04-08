@@ -97,12 +97,12 @@ class ViewLOR(APIView):
     def get(self,request):
         try:
             lor = LOR.objects.filter(user = request.user)
-            return render(request, 'Checklist/viewLOR.html', {"lor": lor})
+            return render(request, 'Checklist/viewLetter.html', {"lor": lor})
         except:
-            return render(request, 'Checklist/viewLOR.html', {"error":"No transcripts uploaded yet"})
+            return render(request, 'Checklist/viewLetter.html', {"error":"No transcripts uploaded yet"})
 class AddLOR(APIView):
     def get(self, request):
-        return render(request, 'Checklist/addLOR.html')
+        return render(request, 'Checklist/addLetter.html')
     def post(self,request):
         lor = LOR(user = request.user, recommender = request.POST['recommender'],email=request.POST['email'],post=request.POST['post'], lor = request.FILES['transcript'])
         lor.save()
@@ -133,4 +133,4 @@ class DeclineInvite(APIView):
 class Profile(APIView):
     def get(self,request,username):
         profile_user = User.objects.get(username=username)
-        return render(request, "student/profile.html",{'profile_user':profile_user})
+        return render(request, "Checklist/profile.html",{'profile_user':profile_user})
