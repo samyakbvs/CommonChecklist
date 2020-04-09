@@ -7,7 +7,7 @@ urlpatterns = [
 path('viewEssays', views.ViewEssay.as_view(), name = "viewEssay"),
 path('addEssay', views.AddEssay.as_view(), name = "addEssay"),
 path('studentHome', views.Home.as_view(), name = "studentHome"),
-path('profile/<slug:username>', views.Profile.as_view(), name = "profile"),
+path('profile/<str:username>', views.Profile.as_view(), name = "profile"),
 path('addTesting', views.AddTesting.as_view(), name = "addTesting"),
 path('viewTranscripts', views.ViewTranscript.as_view(), name = "viewTranscripts"),
 path('addTranscript',views.AddTranscript.as_view(), name = "addTranscript"),
@@ -18,6 +18,6 @@ path('addActivity', views.AddActivity.as_view(), name = "addActivity"),
 path('changePassword', views.ChangePassword.as_view(), name = "changePassword"),
 path('viewTesting', views.ViewTesting.as_view(), name= "viewTesting"),
 path('invitations',views.CounselorInvite.as_view(), name='invitations'),
-path('acceptInvitation/<slug:token>',views.AcceptInvite.as_view(), name='acceptInvitation'),
-path('declineInvitation/<slug:token>',views.DeclineInvite.as_view(), name='declineInvitation')
+path('acceptInvitation/<str:token>',views.AcceptInvite.as_view(), name='acceptInvitation'),
+path('declineInvitation/<str:token>',views.DeclineInvite.as_view(), name='declineInvitation')
 ]
