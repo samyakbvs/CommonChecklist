@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <style media="screen">
+      .needed{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items: center !important;
+    }
+    .form-control{
+      max-width:30vw;
+    }
+    </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <meta charset="utf-8">
     <title></title>
@@ -9,20 +19,17 @@
 <br>
 {% endif %}
   </head>
-  <body>
-    <h1>Signup</h1>
-    <form class="container form-group" action="{% url 'Signup' %}" method="post"><br>
+  <body class="needed">
+    <h1>SignUp</h1>
+    <form class="container form-group needed" action="{% url 'Signup' %}" method="post"><br>
       {% csrf_token %}
-      <input class="form-control"  type="text" name="username" value="" placeholder="username" required><br>
-      <input class="form-control"  type="text" name="name" value="" placeholder="Full Name" required><br>
+      <input class="form-control"  type="text" name="username" value="" placeholder="Username" required><br>
+      <input class="form-control"  type="text" name="name" value="" placeholder="Full Name Name" required><br>
       <input class="form-control"  type="email" name="email" value="" placeholder="Email" required><br>
-      <input class="form-control"  type="password" name="password" value="" placeholder="password" required><br>
-      <input class="form-control"  type="password" name="verifyPassword" value="" placeholder="Confirm" required><br>
+      <input class="form-control"  type="password" name="password" value="" placeholder="Password" required><br>
+      <input class="form-control"  type="password" name="verifyPassword" value="" placeholder="Confirm Password" required><br>
       <input class="form-control"  type="text" name="school" value="" placeholder="School Name" required><br>
-      <input class="form-control"  name="tenth" type="number" value="" placeholder="10th Boards Score"><br>
-      <input class="form-control"  name="sat" value="" placeholder="SAT"><br>
-      <input class="form-control"  name="act" value="" placeholder="ACT"><br>
-      <input class="form-control"  type="submit" name="submit" value="SignUp!" class="btn btn-primary">
+      <button type="submit" class="btn btn-primary" name="button">Sign Up!</button>
     </form>
   </body>
 </html>
