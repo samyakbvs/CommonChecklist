@@ -1,6 +1,9 @@
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <style media="screen">
       .needed{
     display:flex !important;
@@ -10,6 +13,27 @@
     .form-control{
       max-width:30vw;
     }
+		*{
+			font-family: 'Poppins', sans-serif;
+			}
+				nav{
+					background-color:#866ec7!important;
+				}
+				h1{
+					color:#866ec7;
+				}
+				input{
+					border:2px solid #866ec7!important;
+					padding: 10px;
+				}
+				input::placeholder{
+					color:#866ec7!important;
+				}
+				button{
+					padding: 10px;
+					background-color: #866ec7!important;
+					color: white!important;
+				}
     </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <meta charset="utf-8">
@@ -29,7 +53,7 @@
       <input class="form-control"  type="password" name="password" value="" placeholder="Password" required><br>
       <input class="form-control"  type="password" name="verifyPassword" value="" placeholder="Confirm Password" required><br>
       <input class="form-control"  type="text" name="school" value="" placeholder="School Name" required><br>
-      <button type="submit" class="btn btn-primary" name="button">Sign Up!</button>
+      <button type="submit" class="btn" name="button">Sign Up!</button>
     </form>
   </body>
 </html>

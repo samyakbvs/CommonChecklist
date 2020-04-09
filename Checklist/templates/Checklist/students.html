@@ -7,11 +7,14 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<link rel="stylesheet" href="{% static 'super.css' %}">
 
-		<link rel="stylesheet" href="{% static 'footer.css' %}">
+		<link rel="stylesheet" href="{% static 'footer.css' %}">    <script src="https://use.fontawesome.com/977b0e453b.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>View students</title>
   </head>
 	<style media="screen">
@@ -58,7 +61,7 @@
   <body>
 
     <div class="main-content">
-
+<a href="{% url 'counselorHome' %}"><i style="margin-bottom: 20px;float: right;"class="fa fa-home fa-2x"></i></a>
 			<h3> Your assigned students </h3>
 			<p class="prompt"> Enter a name below to search</p>
       <form class="" action="{% url 'AccountCounselor' %}" method="post">

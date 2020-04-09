@@ -1,18 +1,41 @@
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-
+		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <meta charset="utf-8">
-    <title></title>
+    <title>Login</title>
     <style media="screen">
       .spec{
         margin-bottom:20px;
       }
+			*{
+			font-family: 'Poppins', sans-serif;
+			}
+				nav{
+					background-color:#866ec7!important;
+				}
+				h1{
+					color:#866ec7;
+				}
+				input{
+					border:2px solid #866ec7!important;
+					padding: 10px;
+				}
+				input::placeholder{
+					color:#866ec7!important;
+				}
+				button{
+					padding: 10px;
+					background-color: #866ec7!important;
+					color: white!important;
+				}
     </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark">
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -24,7 +47,7 @@
         <a class="nav-link" href="{% url 'Login' %}">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'Signup' %}">SignUp</a>
+        <a class="nav-link" href="{% url 'Signup' %}">Sign up</a>
       </li>
 
     </ul>
@@ -46,7 +69,7 @@
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <br>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn">Submit</button>
   </form>
   </div>
 

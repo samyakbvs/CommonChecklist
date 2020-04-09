@@ -49,4 +49,4 @@ class Login(APIView):
 class Logout(APIView):
     def get(self,request):
         auth.logout(request)
-        return redirect('Home')
+        return redirect('Login')

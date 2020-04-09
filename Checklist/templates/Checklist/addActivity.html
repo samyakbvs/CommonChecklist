@@ -1,53 +1,4 @@
-<!-- <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{% url 'studentHome' %}">Home</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'viewEssay' %}">Essays</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'viewTesting' %}">Standardised Testing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'viewActivity' %}">Activities</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'viewTranscripts' %}">School Transcripts</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'viewLOR' %}">LORs</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'invitations' %}">LORs</a>
-      </li>
-    </ul>
-  </div>
-  </nav>
-<form class="" action="{% url 'addActivity' %}" method="post">
-  {% csrf_token %}
-  <input type="text" name="name" value="" placeholder="Name of Org.">
-  <input type="text" name="category" value="" placeholder="category">
-  <input type="text" name="grades" value="" placeholder="Grades">
-  <input type="text" name="position" value="">
-  <input type="number" name="hoursperweek" value="" placeholder="Hours Per Week">
-  <input type="number" name="weeksperyear" value="" placeholder="weeks per year">
-  <input type="text" name="awards" value="" placeholder="awards">
-  <input type="text" name="description" value="" placeholder="description">
-  <input type="submit" name="" value="Submit!">
-</form>
-  </body>
 </html> -->
 {% load static %}
 <!doctype html>
@@ -60,7 +11,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'super.css' %}">
-		<link rel="stylesheet" href="{% static 'footer.css' %}">
+		<link rel="stylesheet" href="{% static 'footer.css' %}">    <script src="https://use.fontawesome.com/977b0e453b.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Add activities</title>
   </head>
 	<style media="screen">
@@ -120,7 +72,8 @@
 		}
 	</style>
   <body>
-    <div class="main-content">
+  <div class="main-content">
+  <a href="{% url 'studentHome' %}"><i style="margin-bottom: 20px;float: right;"class="fa fa-home fa-2x"></i></a>
 			<h3> Add activities </h3>
 			<h4> Here are some carefully curated links related to the Common Application Activities Section </h4>
 			<a href="https://blog.collegevine.com/how-to-fill-out-the-common-app-activities-section/"> CollegeVine </a> <br>
