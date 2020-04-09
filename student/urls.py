@@ -15,7 +15,7 @@ path('viewLOR', views.ViewLOR.as_view(), name = "viewLOR"),
 path('addLOR', views.AddLOR.as_view(), name = "addLOR"),
 path('viewActivity', views.ViewActivity.as_view(), name = "viewActivity"),
 path('addActivity', views.AddActivity.as_view(), name = "addActivity"),
-path('changePassword', views.ChangePassword.as_view(), name = "changePassword"),
+
 path('viewTesting', views.ViewTesting.as_view(), name= "viewTesting"),
 path('invitations',views.CounselorInvite.as_view(), name='invitations'),
 path('acceptInvitation/<str:token>',views.AcceptInvite.as_view(), name='acceptInvitation'),

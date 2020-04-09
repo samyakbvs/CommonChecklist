@@ -15,21 +15,7 @@ class Home(APIView):
     def get(self,request):
         profile = StudentProfile.objects.get(user = request.user)
         return render(request, 'Checklist/studHome.html',{"profile": profile})
-class ChangePassword(APIView):
-    def get(self,request):
-        return render(request, 'Checklist/changePassword.html')
-    def post(self, request):
-        user = User.objects.get(username = request.user)
-        if user.check_password(request.POST['current']):
-            if request.POST['new'] == request.POST['newVerify']:
-                user.set_password(request.POST['new'])
-                user.save()
-                return redirect('studentHome')
 
-            else:
-                return render(request, 'Checklist/changePassword.html', {"error":"Passwords don't match"})
-        else:
-            return render(request, 'Checklist/changePassword.html', {"error":"Current Password is not correct"})
 
 class AddEssay(APIView):
     def get(self,request):
