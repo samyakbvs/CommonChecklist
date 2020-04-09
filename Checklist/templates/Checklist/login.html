@@ -56,6 +56,10 @@
   <div class="conatiner" style="width:30%;margin:0 auto;margin-top: 150px;">
 
 <h1 class="text-center spec">Common Checklist</h1>
+<br>
+{% if error %}
+{{error}}
+{% endif %}
   <form method="post" action="{% url 'Login'%}">
     {% csrf_token %}
   <div class="form-group">

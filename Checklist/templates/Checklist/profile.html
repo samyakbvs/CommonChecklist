@@ -68,15 +68,23 @@
 			<div style="overflow-x:auto;">
 			  <table>
 			    <tr>
-						<th> Draft number </th>
+						<th> Draft Name</th>
 						<th> Link </th>
 						<th> Deadline </th>
 					</tr>
-					<tr>
-						<td>  </td>
-						<td> <a href="samplelink.com"> Go to link </a> </td>
-						<td> 1st November, 2020 </td>
-					</tr>
+          {% for e in essays %}
+          <tr>
+            <td> {{e.name}} </td>
+            <td> {{e.link}} </td>
+            <td>{{e.date}} </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td> Oops No Essays yet! </td>
+            <td> N/A </td>
+            <td>N/A </td>
+          </tr>
+          {% endfor %}
 			  </table>
 			</div>
 			<h5> Activities </h5>
@@ -89,13 +97,23 @@
 						<th> Weeks/year </th>
 						<th> Grades of participation </th>
 					</tr>
-					<tr>
-						<td> Career-oriented </td>
-						<td> Kepler Developers </td>
-						<td> 20 </td>
-						<td> 20 </td>
-						<td> 10,11,12 </td>
-					</tr>
+          {% for a in activities %}
+          <tr>
+            <td> {{a.category}} </td>
+						<td> {{a.position}} </td>
+						<td> {{a.hourperweek}} </td>
+						<td> {{a.weeksperyear}} </td>
+						<td> {{a.grades}} </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td> Oops Nothing yet! </td>
+						<td> N/A </td>
+						<td>  N/A </td>
+						<td>  N/A</td>
+						<td>  N/A </td>
+          </tr>
+          {% endfor %}
 			  </table>
 			</div>
 			<h5> Recommenders </h5>
@@ -106,11 +124,19 @@
 						<th> Email </th>
 						<th> Post </th>
 					</tr>
+          {% for l in lors %}
 					<tr>
-						<td> Bhawani Ji </td>
-						<td> Lorem ipsum dolor </td>
-						<td> Physics HoD </td>
+						<td> {{l.recommender}} </td>
+						<td> {{l.email}} </td>
+						<td>{{l.post}} </td>
 					</tr>
+          {% empty %}
+          <tr>
+						<td> Oops No Recommendations yet! </td>
+						<td> N/A </td>
+						<td>N/A </td>
+					</tr>
+          {% endfor %}
 			  </table>
 			</div>
 			<h5> Scores </h5>
@@ -121,11 +147,21 @@
 						<th> Date given </th>
 						<th> File </th>
 					</tr>
+          {% for t in testing %}
 					<tr>
-						<td> SAT </td>
-						<td> 7/12/2019 </td>
-						<td> <a href="www.linktophoto.com"> Here </a> </td>
+						<td> {{testing.type}} </td>
+						<td> {{testing.date}} </td>
+						<td> <a href="{{testing.transcripts}"> Here </a> </td>
+
 					</tr>
+          {% empty %}
+          <tr>
+						<td> Oops no Score Yet! </td>
+						<td> N/A </td>
+						<td> <a href="{{testing.transcripts}"> N/A </a> </td>
+
+					</tr>
+          {% endfor %}
 			  </table>
 			</div>
 			<h5> View transcripts </h5>
@@ -133,14 +169,20 @@
 			  <table>
 			    <tr>
 						<th> Grade </th>
-						<th> Semester </th>
+
 						<th> File </th>
 					</tr>
+          {% for u in transcripts %}
 					<tr>
-						<td> 9th Grade </td>
-						<td> First semester </td>
-						<td> <a href="www.linktophoto.com"> Here </a> </td>
+						<td> {{u.grade}} </td>
+						<td> <a href="{{u.transcripts}"> Here </a> </td>
 					</tr>
+          {% empty %}
+          <tr>
+						<td> Oops no Transcript Yet! </td>
+						<td> <a href=""> N/A </a> </td>
+					</tr>
+          {% endfor %}
 			  </table>
 			</div>
 		</div>
