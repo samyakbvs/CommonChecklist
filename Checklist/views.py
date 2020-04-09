@@ -40,9 +40,10 @@ class Login(APIView):
         user = auth.authenticate(username=request.POST['Username'],password=request.POST['Password'])
         if user is not None:
             auth.login(request, user)
-            if user.is_staff:
+            try:
+                is_counselor = user.counselorprofile.name
                 return redirect('counselorHome')
-            else:
+            except:
                 return redirect('studentHome')
         return redirect('Login')
 
