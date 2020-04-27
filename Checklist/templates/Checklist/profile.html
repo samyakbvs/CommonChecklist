@@ -57,7 +57,7 @@
   <body>
     {% if user == profile_user or user == profile_user.studentprofile.counselor.user %}
   <div class="main-content">
-    {% if user.is_staff %}
+    {% if user.counselorprofile.name %}
   <a href="{% url 'counselorHome' %}"><i style="margin-bottom: 20px;float: right;"class="fa fa-home fa-2x"></i></a>
   {% else %}
 <a href="{% url 'studentHome' %}"><i style="margin-bottom: 20px;float: right;"class="fa fa-home fa-2x"></i></a>
