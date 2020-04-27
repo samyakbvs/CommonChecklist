@@ -119,9 +119,9 @@ class DeclineInvite(APIView):
 class Profile(APIView):
     def get(self,request,username):
         profile_user = User.objects.get(username=username)
-        testing = Testing.objects.filter(user = request.user)
-        essays = Essay.objects.filter(user = request.user)
-        activities = Activity.objects.filter(user = request.user)
-        lors = LOR.objects.filter(user = request.user)
-        transcripts = Transcript.objects.filter(user = request.user)
-        return render(request, "Checklist/profile.html",{'profile_user':profile_user, 'testing': testing, 'essays':essays, 'activities':activities, 'lors':lors, 'transcripts':transcripts})
+        # testing = Testing.objects.filter(user = request.user)
+        # essays = Essay.objects.filter(user = request.user)
+        # activities = Activity.objects.filter(user = request.user)
+        # lors = LOR.objects.filter(user = request.user)
+        # transcripts = Transcript.objects.filter(user = request.user)
+        return render(request, "Checklist/profile.html",{'profile_user':profile_user})

@@ -72,7 +72,7 @@
 						<th> Link </th>
 						<th> Deadline </th>
 					</tr>
-          {% for e in essays %}
+          {% for e in profile_user.essays.all %}
           <tr>
             <td> {{e.name}} </td>
             <td> {{e.link}} </td>
@@ -97,7 +97,7 @@
 						<th> Weeks/year </th>
 						<th> Grades of participation </th>
 					</tr>
-          {% for a in activities %}
+          {% for a in profile_user.activities.all %}
           <tr>
             <td> {{a.category}} </td>
 						<td> {{a.position}} </td>
@@ -124,11 +124,12 @@
 						<th> Email </th>
 						<th> Post </th>
 					</tr>
-          {% for l in lors %}
+          {% for l in profile_user.lors.all %}
 					<tr>
 						<td> {{l.recommender}} </td>
 						<td> {{l.email}} </td>
 						<td>{{l.post}} </td>
+
 					</tr>
           {% empty %}
           <tr>
@@ -147,7 +148,7 @@
 						<th> Date given </th>
 						<th> File </th>
 					</tr>
-          {% for t in testing %}
+          {% for t in profile_user.tests.all%}
 					<tr>
 						<td> {{testing.type}} </td>
 						<td> {{testing.date}} </td>
@@ -172,7 +173,7 @@
 
 						<th> File </th>
 					</tr>
-          {% for u in transcripts %}
+          {% for u in profile_user.transcripts.all %}
 					<tr>
 						<td> {{u.grade}} </td>
 						<td> <a href="{{u.transcripts}"> Here </a> </td>
