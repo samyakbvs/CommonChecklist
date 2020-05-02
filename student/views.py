@@ -4,7 +4,7 @@ from django.contrib import auth
 from .models import StudentProfile
 from django.contrib.auth.forms import UserChangeForm
 # from .models import Essay,StudentProfile, SAT, ACT, Activity,Invite, Transcript, SubjectTest, LOR
-from .models import Essay,StudentProfile, Activity,Invite, Transcript, Testing, LOR
+from .models import Essay,StudentProfile, Activity,Invite, Transcript, Testing, LOR,Notes
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from Counselor.models import CounselorProfile
@@ -115,6 +115,15 @@ class DeclineInvite(APIView):
         req = Invite.objects.get(token=token)
         req.delete()
         return redirect('invitations')
+
+class ViewNotes(APIView):
+    def get(self,request):
+        try:
+            notes = Notes.objects.filter(user = request.user)
+            return render(request, 'Checklist/viewNotes.html', {"notes": notes})
+        except:
+            return render(request, 'Checklist/viewNotes.html', {"error":"No notes from counselor!"})
+
 
 class Profile(APIView):
     def get(self,request,username):

@@ -1,6 +1,6 @@
 from django.contrib import admin
 # from student.models import Essay,StudentProfile, SAT, ACT, Activity,Invite, Transcript, SubjectTest, LOR
-from student.models import Essay,StudentProfile, Activity,Invite, Transcript, LOR,Testing
+from student.models import Essay,StudentProfile, Activity,Invite, Transcript, LOR,Testing,Notes
 from Counselor.models import CounselorProfile
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
@@ -21,6 +21,11 @@ class EssaysInline(admin.TabularInline):
     model = Essay
     can_delete = False
     verbose_name_plural = 'Essays'
+
+class NotesInline(admin.TabularInline):
+    model = Notes
+    can_delete = False
+    verbose_name_plural = 'Notes'
 
 # class SATInline(admin.TabularInline):
 #     model = SAT
@@ -65,7 +70,7 @@ class InviteInline(admin.TabularInline):
 
 class UserAdmin(BaseUserAdmin):
     # inlines = (StudentProfileInline,CounselorProfileInline,EssaysInline,ActivityInline,SATInline,ACTInline,SubjectTestInline,TranscriptInline,LORInline,InviteInline)
-    inlines = (StudentProfileInline,CounselorProfileInline,EssaysInline,TestingInLine,TranscriptInline,LORInline,InviteInline)
+    inlines = (StudentProfileInline,CounselorProfileInline,EssaysInline,TestingInLine,TranscriptInline,LORInline,InviteInline,NotesInline)
 
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
