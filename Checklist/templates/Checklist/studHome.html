@@ -24,6 +24,13 @@
 		p{
 			color:#6749b9;
 		}
+    .side{
+      display: flex !important;
+    }
+    .deadline{
+      margin-top: 34vh;
+      margin-right: 50px;
+    }
 		/* #866ec7 */
 	</style>
   <body>
@@ -116,30 +123,41 @@
     	</nav>
 
         <!-- Page Content  -->
-      <div id="content" class="p-4 p-md-5 pt-5">
+        <div class="side">
+          <div id="content" class="p-4 p-md-4 pt-5">
 
-        <h2 class="mb-4">Dashboard</h2>
-				<h3 class="mb-4 "> Hi there, {{ profile.name }} </h3>
-        {% if profile.counselor.name %}
-        <h3 class="mb-4 "> Counselor -  {{ profile.counselor.name }} </h3>
-        {% endif%}
-				<p>Appyling to college is stressful. We know that. And we're here to help. With College Collab, our users can streamline their college application process. Serving as an intermediary to the Common Application portal, with College Collab, students can collect all the relevant documents they need for their application and get them approved by their counsellors.</p>
-				<h4> Important deadlines </h4>
-				<h5 class="timer-title"> SAT 2020 Testing dates (subject to change) </h5>
-				August 29, 2020   <p id="t4"></p>
-				October 3, 2020	<p id="t5"></p>
-				November 7, 2020 <p id="t6"></p>
-				December 5, 2020 <p id="t7"></p>
-				<h5 class="timer-title"> Early Decision Deadline - November 1st, 2020 </h5>
-				<p id="t1"></p>
-				<h5 class="timer-title"> Early Action (GATech) and Oxbridge Deadline - October 15th, 2020 </h5>
-				<p id="t3"></p>
-				<h5 class="timer-title"> Regular Decision Deadline - January 1st, 2021 </h5>
-				<p id="t2"></p>
+            <h2 class="mb-4">Dashboard</h2>
+            <h3 class="mb-4 "> Hi there, {{ profile.name }} </h3>
+            {% if profile.counselor.name %}
+            <h3 class="mb-4 "> Counselor -  {{ profile.counselor.name }} </h3>
+            {% endif%}
+            <p>Appyling to college is stressful. We know that. And we're here to help. With College Collab, our users can streamline their college application process. Serving as an intermediary to the Common Application portal, with College Collab, students can collect all the relevant documents they need for their application and get them approved by their counsellors.</p>
+            <h4> Important deadlines </h4>
+          <a href="{% url 'addDeadline' %}"> <button class="btn btn-success" type="button" name="button">Add a Deadline</button></a>
+          <br><br>
+          <h5 class="timer-title"> Upcoming Personal Deadlines</h5>
+          {% for d in deadlines.all %}
+          {{ d.date|date:"M d, Y" }} <p id="{{d.id}}">{{d.date|time:"H:i" }}</p>
+          {% endfor %}
+            <h5 class="timer-title"> SAT 2020 Testing dates (subject to change) </h5>
+            August 29, 2020   <p id="t4"></p>
+            October 3, 2020	<p id="t5"></p>
+            November 7, 2020 <p id="t6"></p>
+            December 5, 2020 <p id="t7"></p>
+            <h5 class="timer-title"> Early Decision Deadline - November 1st, 2020 </h5>
+            <p id="t1"></p>
+            <h5 class="timer-title"> Early Action (GATech) and Oxbridge Deadline - October 15th, 2020 </h5>
+            <p id="t3"></p>
+            <h5 class="timer-title"> Regular Decision Deadline - January 1st, 2021 </h5>
+            <p id="t2"></p>
 
 
 
-      </div>
+          </div>
+
+
+
+        </div>
 		</div>
 
 		<script>
@@ -180,6 +198,10 @@
 		countdown("Oct 3, 2020 00:00:00","t5")
 		countdown("Nov 7, 2020 00:00:00","t6")
 		countdown("Dec 5, 2020 00:00:00","t7")
+    {% for d in deadlines %}
+    da = new Date("{{d.date.isoformat}}")
+    countdown("{{d.date.isoformat}}" ,"{{d.id}}")
+    {% endfor %}
 
 		</script>
 

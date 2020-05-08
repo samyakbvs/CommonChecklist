@@ -4,7 +4,7 @@ from django.contrib import auth
 from .models import StudentProfile
 from django.contrib.auth.forms import UserChangeForm
 # from .models import Essay,StudentProfile, SAT, ACT, Activity,Invite, Transcript, SubjectTest, LOR
-from .models import Essay,StudentProfile, Activity,Invite, Transcript, Testing, LOR,Notes
+from .models import Essay,StudentProfile, Activity,Invite, Transcript, Testing, LOR,Notes, Deadline
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from Counselor.models import CounselorProfile
@@ -14,7 +14,8 @@ from datetime import datetime
 class Home(APIView):
     def get(self,request):
         profile = StudentProfile.objects.get(user = request.user)
-        return render(request, 'Checklist/studHome.html',{"profile": profile})
+        deadlines = Deadline.objects.filter(user = request.user)
+        return render(request, 'Checklist/studHome.html',{"profile": profile, 'deadlines':deadlines})
 
 
 class AddEssay(APIView):
@@ -123,7 +124,13 @@ class ViewNotes(APIView):
             return render(request, 'Checklist/viewNotes.html', {"notes": notes})
         except:
             return render(request, 'Checklist/viewNotes.html', {"error":"No notes from counselor!"})
-
+class addDeadline(APIView):
+    def get(self, request):
+        return render(request, 'Checklist/addDeadline.html')
+    def post(self,request):
+        deadline = Deadline(user = request.user, title = request.POST['title'], date = request.POST['date'])
+        deadline.save()
+        return redirect('studentHome')
 
 class Profile(APIView):
     def get(self,request,username):
@@ -134,3 +141,9 @@ class Profile(APIView):
         # lors = LOR.objects.filter(user = request.user)
         # transcripts = Transcript.objects.filter(user = request.user)
         return render(request, "Checklist/profile.html",{'profile_user':profile_user})
+def delete(request, model, model_id):
+    id =  int(model_id)
+    my_model = getattr(models,model)
+    instance = get_object_or_404(my_model,pk = model_id)
+    instance.delete()
+    return rendirect('studentHome')    

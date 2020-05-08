@@ -8,3 +8,8 @@ class CounselorProfile(models.Model):
 
     def __str__(self):
         return self.name
+class Link(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length = 500, null = True)
+    link = models.URLField(max_length = 1000)
+    link2 = models.URLField(max_length = 1000, null = True)

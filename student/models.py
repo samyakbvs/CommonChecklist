@@ -48,8 +48,11 @@ class Invite(models.Model):
     counselor_name = models.CharField(max_length = 200)
     email = models.CharField(max_length=200,default="email")
     token = models.CharField(max_length = 11)
-
 class Notes(models.Model):
     counselor_name = models.CharField(max_length=264)
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='notes')
     text = models.CharField(max_length=2640)
+class Deadline(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    title = models.CharField(max_length = 300)
+    date = models.DateTimeField()

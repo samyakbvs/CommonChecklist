@@ -19,5 +19,7 @@ path('viewNotes', views.ViewNotes.as_view(), name = "viewNotes"),
 path('viewTesting', views.ViewTesting.as_view(), name= "viewTesting"),
 path('invitations',views.CounselorInvite.as_view(), name='invitations'),
 path('acceptInvitation/<str:token>',views.AcceptInvite.as_view(), name='acceptInvitation'),
-path('declineInvitation/<str:token>',views.DeclineInvite.as_view(), name='declineInvitation')
+path('declineInvitation/<str:token>',views.DeclineInvite.as_view(), name='declineInvitation'),
+path('addDeadline', views.addDeadline.as_view(), name = "addDeadline"),
+path('delete/<slug:model>/<int:model_id>', view.delete, name = "delete")
 ]
