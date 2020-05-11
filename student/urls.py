@@ -21,5 +21,5 @@ path('invitations',views.CounselorInvite.as_view(), name='invitations'),
 path('acceptInvitation/<str:token>',views.AcceptInvite.as_view(), name='acceptInvitation'),
 path('declineInvitation/<str:token>',views.DeclineInvite.as_view(), name='declineInvitation'),
 path('addDeadline', views.addDeadline.as_view(), name = "addDeadline"),
-path('delete/<slug:model>/<int:model_id>', view.delete, name = "delete")
+path('delete/<str:model>/<int:model_id>', views.delete, name = "delete")
 ]

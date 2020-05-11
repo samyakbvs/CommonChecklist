@@ -68,9 +68,16 @@
 			<section class="note">
 				<h4 class="note-title"> {{note.counselor_name}}</h4>
 				<hr class="note-hr">
-				<h6 class="note-date"> 27-11-2002 </h6>
+				<h6 class="note-date"> {{note.date}} </h6>
 				<p class="note-body"> {{ note.text }} </p>
 			</section>
+      {% empty %}
+      <section class="note">
+        <h4 class="note-title"> No notes</h4>
+        <hr class="note-hr">
+        <h6 class="note-date"> NA</h6>
+        <p class="note-body"> NA </p>
+      </section>
       {% endfor %}
 		</div>
 		<!-- Site footer -->

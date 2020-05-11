@@ -121,6 +121,9 @@ class ViewNotes(APIView):
     def get(self,request):
         try:
             notes = Notes.objects.filter(user = request.user)
+            prof = StudentProfile.objects.get(user = request.user)
+            prof.newmessage = False
+            prof.save()
             return render(request, 'Checklist/viewNotes.html', {"notes": notes})
         except:
             return render(request, 'Checklist/viewNotes.html', {"error":"No notes from counselor!"})
@@ -146,4 +149,4 @@ def delete(request, model, model_id):
     my_model = getattr(models,model)
     instance = get_object_or_404(my_model,pk = model_id)
     instance.delete()
-    return rendirect('studentHome')    
+    return rendirect('studentHome')

@@ -33,6 +33,9 @@ class AddNotes(APIView):
         if user.studentprofile.counselor.user == request.user:
             note = Notes(user=user,counselor_name=request.user.counselorprofile.name, text=request.POST['note'])
             note.save()
+            prof = StudentProfile.objects.get(user = user)
+            prof.newmessage = True
+            prof.save()
             return redirect('counselorHome')
         return render(request,'Checklist/addNotes.html',{'error':"You're not assigned to this student"})
 
@@ -80,4 +83,4 @@ def delete(request, model, model_id):
     my_model = getattr(models,model)
     instance = get_object_or_404(my_model,pk = model_id)
     instance.delete()
-    return rendirect('counselorHome')   
+    return rendirect('counselorHome')

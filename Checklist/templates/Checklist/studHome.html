@@ -90,6 +90,14 @@
                 </li>
               </ul>
 	          </li>
+            <li>
+              <a href="#pageSubmenuu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Notes</a>
+              <ul class="collapse list-unstyled" id="pageSubmenuu">
+                <li>
+                    <a href="{% url 'viewNotes' %}">View Notes</a>
+                </li>
+              </ul>
+            </li>
 						<li>
               <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Transcripts</a>
               <ul class="collapse list-unstyled" id="pageSubmenu4">
@@ -137,7 +145,8 @@
           <br><br>
           <h5 class="timer-title"> Upcoming Personal Deadlines</h5>
           {% for d in deadlines.all %}
-          {{ d.date|date:"M d, Y" }} <p id="{{d.id}}">{{d.date|time:"H:i" }}</p>
+          <h5 class="timer-title"> {{d.title}} - {{d.date|date:"M d, Y"}} </h5>
+           <p id="{{d.id}}">{{d.date|time:"H:i" }}</p>
           {% endfor %}
             <h5 class="timer-title"> SAT 2020 Testing dates (subject to change) </h5>
             August 29, 2020   <p id="t4"></p>

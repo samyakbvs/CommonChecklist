@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from Counselor.models import CounselorProfile
+from django.utils import timezone
 # Create your models here.
 
 class StudentProfile(models.Model):
@@ -8,6 +9,7 @@ class StudentProfile(models.Model):
     email = models.EmailField(unique=True)
     name = models.CharField(default="Default name", max_length = 1000)
     school = models.CharField(max_length = 1000)
+    newmessage = models.BooleanField(default = False)
     counselor = models.ForeignKey(CounselorProfile, on_delete=models.CASCADE, null=True,related_name="students",default=None,blank=True)
     def __str__(self):
         return self.name
@@ -52,6 +54,7 @@ class Notes(models.Model):
     counselor_name = models.CharField(max_length=264)
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='notes')
     text = models.CharField(max_length=2640)
+    date = models.DateTimeField(null = True, auto_now_add = True)
 class Deadline(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     title = models.CharField(max_length = 300)
