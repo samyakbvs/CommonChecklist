@@ -1,7 +1,7 @@
 from django.contrib import admin
 # from student.models import Essay,StudentProfile, SAT, ACT, Activity,Invite, Transcript, SubjectTest, LOR
-from student.models import Essay,StudentProfile, Activity,Invite, Transcript, LOR,Testing,Notes
-from Counselor.models import CounselorProfile
+from student.models import Essay,StudentProfile, Activity,Invite, Transcript, LOR,Testing,Notes, Deadline
+from Counselor.models import CounselorProfile, Link
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
 
@@ -26,6 +26,14 @@ class NotesInline(admin.TabularInline):
     model = Notes
     can_delete = False
     verbose_name_plural = 'Notes'
+class DeadlineInLine(admin.TabularInline):
+    model = Deadline
+    can_delete =  False
+    verbose_name_plural = 'Deadlines'
+class LinkInLine(admin.TabularInline):
+    model = Link
+    can_delete = False
+    verbose_name_plural = 'Links'
 
 # class SATInline(admin.TabularInline):
 #     model = SAT
@@ -70,7 +78,7 @@ class InviteInline(admin.TabularInline):
 
 class UserAdmin(BaseUserAdmin):
     # inlines = (StudentProfileInline,CounselorProfileInline,EssaysInline,ActivityInline,SATInline,ACTInline,SubjectTestInline,TranscriptInline,LORInline,InviteInline)
-    inlines = (StudentProfileInline,CounselorProfileInline,EssaysInline,TestingInLine,TranscriptInline,LORInline,InviteInline,NotesInline)
+    inlines = (StudentProfileInline,CounselorProfileInline,EssaysInline,TestingInLine,TranscriptInline,LORInline,InviteInline,NotesInline, DeadlineInLine, LinkInLine)
 
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)

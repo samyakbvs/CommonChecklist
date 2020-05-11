@@ -10,6 +10,8 @@ urlpatterns = [
     path('addNotes', views.AddNotes.as_view(), name = "addNotes"),
     path('searchStudent/<str:query>', views.Search.as_view(), name="SearchStudent"),
     path('searchAddStudent/<str:query>', views.SearchAddStudent.as_view(), name="SearchAddStudent"),
-    path('invite/<str:stud>', views.InviteStudent.as_view(), name="Invite")
+    path('invite/<str:stud>', views.InviteStudent.as_view(), name="Invite"),
+    path('addlink', views.AddLink.as_view(), name = "addlink"),
+    path('delete', views.delete, name = "delete")
 
 ]

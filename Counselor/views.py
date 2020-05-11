@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from rest_framework.views import APIView
 from django.contrib import auth
 from student.models import StudentProfile,Invite,Notes
+from Counselor.models import Link
 from django.contrib.auth.models import User
 import random
 import string
@@ -67,3 +68,16 @@ class InviteStudent(APIView):
 class CounselorHome(APIView):
     def get(self,request):
         return render(request,'Checklist/counHome.html')
+class AddLink(APIView):
+    def get(self,request):
+        return render(request, 'Checklist/counLink.html')
+    def post(self,request):
+        link = Link(user = request.user, title = request.POST['title'], link = request.POST['link'], link2 = request.POST['link2'])
+        link.save()
+        return redirect('counselorHome')
+def delete(request, model, model_id):
+    id =  int(model_id)
+    my_model = getattr(models,model)
+    instance = get_object_or_404(my_model,pk = model_id)
+    instance.delete()
+    return rendirect('counselorHome')   
