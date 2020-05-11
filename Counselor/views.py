@@ -25,13 +25,15 @@ class Search(APIView):
         return render(request,'Checklist/students.html',{"students":students})
 
 class AddNotes(APIView):
-    def get(self,request,username):
-        return render(request,'Checklist/addNotes.html',{'username':username})
-    def post(self,request,username):
-        user = User.objects.get(username=username)
-        note = Notes(user=user,counselor_name=request.user.counselorprofile.name, text=request.POST['note'])
-        note.save()
-        return redirect('counselorHome')
+    def get(self,request):
+        return render(request,'Checklist/addNotes.html')
+    def post(self,request):
+        user = User.objects.get(username=request.POST['username'])
+        if user.studentprofile.counselor.user == request.user:
+            note = Notes(user=user,counselor_name=request.user.counselorprofile.name, text=request.POST['note'])
+            note.save()
+            return redirect('counselorHome')
+        return render(request,'Checklist/addNotes.html',{'error':"You're not assigned to this student"})
 
 class AddStudent(APIView):
     def get(self,request):
