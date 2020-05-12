@@ -140,6 +140,13 @@
             <h3 class="mb-4 "> Counselor -  {{ profile.counselor.name }} </h3>
             {% endif%}
             <p>Appyling to college is stressful. We know that. And we're here to help. With College Collab, our users can streamline their college application process. Serving as an intermediary to the Common Application portal, with College Collab, students can collect all the relevant documents they need for their application and get them approved by their counsellors.</p>
+
+
+            {% if profile.newmessage %}
+
+            <h6>You have new notes! <strong><a href="{% url 'viewNotes' %}">Go Check them Out</a> </strong> </h6>
+            {% endif %}
+
             <h4> Important deadlines </h4>
           <a href="{% url 'addDeadline' %}"> <button class="btn btn-success" type="button" name="button">Add a Deadline</button></a>
           <br><br>

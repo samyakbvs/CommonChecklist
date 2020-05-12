@@ -32,9 +32,9 @@ class AddNotes(APIView):
         user = User.objects.get(username=request.POST['username'])
         note = Notes(user=user,counselor_name=request.user.counselorprofile.name, text=request.POST['note'])
         note.save()
-        # prof = StudentProfile.objects.get(user = user)
-        # prof.newmessage = True
-        # prof.save()
+        prof = StudentProfile.objects.get(user = user)
+        prof.newmessage = True
+        prof.save()
         return redirect('counselorHome')
 class AddStudent(APIView):
     def get(self,request):
