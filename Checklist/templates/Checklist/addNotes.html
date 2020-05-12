@@ -67,8 +67,13 @@
         {% csrf_token %}
 
 			<div class="act-form">
-				<p class="prompt"> Enter student username </p>
-				<input name='username' type="text" class="text-inp" placeholder="Enter here">
+				<!-- <p class="prompt"> Enter student username </p>
+				<input name='username' type="text" class="text-inp" placeholder="Enter here"> -->
+        <select  name="username" id="activite">
+          {% for student in user.counselorprofile.students.all %}
+          <option value="{{ student.user.username }}">{{ student.user.username }}</option>
+          {% endfor %}
+        </select>
 				<p class="prompt"> Enter your note </p>
 				<input name='note' type="text" class="text-inp" placeholder="Enter here">
 				<br>
