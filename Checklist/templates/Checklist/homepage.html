@@ -1,32 +1,144 @@
+
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{% url 'Home' %}">Home</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
+{% load static %}
+<html lang="en">
 
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'Login' %}">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'Signup' %}">SignUp</a>
-      </li>
+<head>
 
-    </ul>
-  </div>
-</nav>
-    <div class="jumbotron">
-      <h1>College Collab</h1>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
+  <title>College Collab</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'one-page-wonder.css' %}" rel="stylesheet">
+
+</head>
+<style media="screen">
+	*{
+		font-family: "Poppins"!important;
+	}
+	p,li{
+		color:#866ec7!important;
+	}
+	h2{}
+    .pur{
+      font-size: 25px;
+    }
+    .spec{color:white;}
+</style>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">College Collab</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'Login' %}">Login</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </body>
+  </nav>
+
+  <header class="masthead text-center text-white">
+    <div class="masthead-content">
+      <div class="container">
+        <h1 class="masthead-heading mb-0">Take on the application process.</h1>
+        <h2 class="masthead-subheading mb-0">Help us help you.</h2>
+        <br>
+        <a href="{% url 'Signup' %}" class="spec"> <button type="button" class="btn btn-primary pur" name="button">SignUp!</button> </a>
+      </div>
+    </div>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="row align-items-center">
+
+        <div class="order-lg-1">
+          <div class="p-5">
+            <h2 class="display-4">Hi there</h2>
+            <p>Appyling to college is stressful. We know that. And we're here to help. With College Collab, our users can streamline their college application process. Serving as an intermediary to the Common Application portal, with College Collab, students can collect all the relevant documents they need for their application and get them approved by their counsellors.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="p-5">
+            <img class="img-fluid" src="{% static '02.jpg' %}" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="p-5">
+						<h2 class="display-4">Features</h2>
+            <p>College Collab is a one-stop portal for students and counsellors to stay on top of college application deadlines. We help you make the most out of your application process!</p>
+						<ul>
+							<li> Add essays, activities, standardised testing scores, transcripts, a college list, recommenders, and deadlines to a student's profile. </li>
+							<li> Invite individual students to your counselling groups. </li>
+							<li> Send your students notes. </li>
+							<li> View your students' progress on their applications. </li>
+							<li> View important components of your students' applications and make sure they're up to par. </li>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2">
+          <div class="p-5">
+            <img class="img-fluid e" src="{% static '03.jpg' %}" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <div class="p-5">
+						<h2 class="display-4">Get set up today!</h2>
+            <p>At a blanket, all inclusive cost of <strong> $100 </strong> per year, with College Collab, institutions receive an integrated platform for an unlimimited number of counsellors and students and year-round tech support. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-black">
+    <div class="container">
+      <p class="m-0 text-center text-white small">Copyright &copy; SmartnUp</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'js/jquery.min.js'%}"></script>
+  <script src="{% static 'js/bootstrap.min.js'%}"></script>
+
+</body>
+
 </html>

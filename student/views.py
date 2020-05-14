@@ -16,8 +16,6 @@ class Home(APIView):
         profile = StudentProfile.objects.get(user = request.user)
         deadlines = Deadline.objects.filter(user = request.user)
         return render(request, 'Checklist/studHome.html',{"profile": profile, 'deadlines':deadlines})
-
-
 class AddEssay(APIView):
     def get(self,request):
         return render(request, 'Checklist/addEssay.html')

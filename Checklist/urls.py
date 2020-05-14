@@ -6,7 +6,8 @@ from student import urls as urlsStudents
 
 
 urlpatterns = [
-    path('',views.Login.as_view(),name="Login"),
+    path('',views.Home.as_view(), name = "home"),
+    path('login/',views.Login.as_view(),name="Login"),
     path('signup/',views.Signup.as_view(),name="Signup"),
     path('logout', views.Logout.as_view(), name="logout"),
     path('counselor/',include(urlsCounselors)),
