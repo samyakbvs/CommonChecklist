@@ -34,17 +34,61 @@
 					background-color: #866ec7!important;
 					color: white!important;
 				}
+        .spec{
+          margin-bottom:20px;
+        }
+        *{
+        font-family: 'Poppins', sans-serif;
+        }
+          nav{
+            background-color:#866ec7!important;
+          }
+          h1{
+            color:#866ec7;
+          }
+          input{
+            border:2px solid #866ec7!important;
+            padding: 10px;
+          }
+          input::placeholder{
+            color:#866ec7!important;
+          }
+          button{
+            padding: 10px;
+            background-color: #866ec7!important;
+            color: white!important;
+          }
     </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <meta charset="utf-8">
+
     <title></title>
     {% if error %}
 <h1>{{error}}</h1>
 <br>
 {% endif %}
   </head>
-  <body style="margin-top:50px;"class="needed">
-    <h1>SignUp</h1>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'Login' %}">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'Signup' %}">Sign up</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+<br><br>
+    <h1 class="text-center">SignUp</h1>
     <form class="container form-group needed" action="{% url 'Signup' %}" method="post"><br>
       {% csrf_token %}
       <input class="form-control"  type="text" name="username" value="" placeholder="Username" required><br>

@@ -150,16 +150,16 @@
 					</tr>
           {% for t in profile_user.tests.all%}
 					<tr>
-						<td> {{testing.type}} </td>
-						<td> {{testing.date}} </td>
-						<td> <a href="{{testing.transcripts}"> Here </a> </td>
+						<td> {{t.type}} </td>
+						<td> {{t.date}} </td>
+						<td> <a href="{{t.transcripts.url}}"> Here </a> </td>
 
 					</tr>
           {% empty %}
           <tr>
 						<td> Oops no Score Yet! </td>
 						<td> N/A </td>
-						<td> <a href="{{testing.transcripts}"> N/A </a> </td>
+						<td> <a href="#"> N/A </a> </td>
 
 					</tr>
           {% endfor %}
