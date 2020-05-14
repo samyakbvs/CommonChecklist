@@ -22,7 +22,7 @@ class AllStudent(APIView):
 class Search(APIView):
     def get(self,request,query):
         current_user = request.user
-        students  = current_user.counselorprofile.students.filter(name__contains=query)
+        students  = current_user.counselorprofile.students.filter(name__icontains=query)
         return render(request,'Checklist/students.html',{"students":students})
 
 class AddNotes(APIView):
@@ -46,7 +46,7 @@ class AddStudent(APIView):
 class SearchAddStudent(APIView):
     def get(self,request,query):
         # current_user = request.user
-        students  =  StudentProfile.objects.filter(name__contains=query)
+        students  =  StudentProfile.objects.filter(name__icontains=query)
         return render(request,'Checklist/addStudents.html',{"students":students})
 
 class InviteStudent(APIView):
