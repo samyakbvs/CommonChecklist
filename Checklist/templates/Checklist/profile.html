@@ -59,10 +59,15 @@
   <div class="main-content">
     {% if user.counselorprofile.name %}
   <a href="{% url 'counselorHome' %}"><i style="margin-bottom: 20px;float: right;"class="fa fa-home fa-2x"></i></a>
+  <a href="#"></a>
   {% else %}
 <a href="{% url 'studentHome' %}"><i style="margin-bottom: 20px;float: right;"class="fa fa-home fa-2x"></i></a>
 {% endif %}
+
 			<h3> View profile </h3>
+      {% if user.counselorprofile.name %}
+      <a href="{% url 'counselorView' profile_user  %}"> <button type="button" class="btn btn-success" name="button">View Full Activities List</button> </a>
+      {% endif %}
       <br>
 			<h5> Essays </h5>
 			<div style="overflow-x:auto;">

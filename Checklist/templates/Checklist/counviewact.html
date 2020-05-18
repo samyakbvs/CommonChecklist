@@ -60,11 +60,6 @@
     .main-content{
       margin-bottom: 100px;
     }
-    .split{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
 	</style>
   <body>
     <div class="main-content">
@@ -80,7 +75,7 @@
 			<h3> View Activities </h3>
       {% for i in activity %}
 			<section class="note">
-			<span class="split">	<h4 class="note-title"> {{ i.category }} - {{i.position}}</h4> <a href="{% url 'delete' names.act i.id %}"> <button type="button" class="btn btn-danger" name="button">Delete</button> </a> </span>
+				<h4 class="note-title"> {{ i.category }} - {{i.position}}</h4>
 				<hr class="note-hr">
 				<h6 class="note-date"> {{ i.hourperweek }} hours/week</h6>
         <h6>{{ i.weeksperyear }} weeks/year</h6>

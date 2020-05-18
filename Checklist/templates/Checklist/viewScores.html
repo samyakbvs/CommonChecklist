@@ -64,12 +64,14 @@
 						<th> Test type</th>
 						<th> Date given </th>
 						<th> File </th>
+            <th>Delete</th>
 					</tr>
           {% for test in tests %}
 					<tr>
 						<td> {{ test.type }} </td>
 						<td> {{ test.date }} </td>
 						<td> <a href="{{ test.transcripts.url }}"> Here </a> </td>
+            <td> <a href="{% url 'delete' names.test test.id %}"> <button type="button" class="btn btn-danger" name="button">Delete!</button> </a> </td>
 					</tr>
           {% endfor %}
 			  </table>

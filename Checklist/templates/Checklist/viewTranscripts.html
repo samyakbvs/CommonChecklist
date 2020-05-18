@@ -105,13 +105,16 @@
 			    <tr>
 						<th> Grade </th>
 						<th> Transcript </th>
+            <th>Delete</th>
 					</tr>
           {% for i in transcript  %}
 					<tr>
 						<td> {{ i.grade }} </td>
 
-						<td> <a href="{{ i.transcripts.url }}"> File </a> </td>
-					</tr>
+
+            <td> <a href="{{ i.transcripts.url }}"> File </a> </td>
+              <td> <a href="{% url 'delete' names.tranc i.id %}"> <button type="button" class="btn btn-danger" name="button">Delete!</button> </a> </td>
+          </tr>
           {% endfor %}
 			  </table>
 			</div>

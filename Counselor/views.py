@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from rest_framework.views import APIView
 from django.contrib import auth
-from student.models import StudentProfile,Invite,Notes
+from student.models import StudentProfile,Invite,Notes, Activity
 from Counselor.models import Link
 from django.contrib.auth.models import User
 import random
@@ -24,7 +24,11 @@ class Search(APIView):
         current_user = request.user
         students  = current_user.counselorprofile.students.filter(name__icontains=query)
         return render(request,'Checklist/students.html',{"students":students})
-
+class ViewActivity(APIView):
+    def get(self,request, username):
+        activity = Activity.objects.filter(user__username = username)
+        profile_user = User.objects.get(username=username)
+        return render(request, 'Checklist/counviewact.html', {"activity":activity, "profile_user": profile_user})
 class AddNotes(APIView):
     def get(self,request):
         return render(request,'Checklist/addNotes.html')

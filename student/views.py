@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from Counselor.models import CounselorProfile
 from datetime import datetime
+from . import models
 
 # Create your views here.
 class Home(APIView):
@@ -32,8 +33,11 @@ class AddEssay(APIView):
 class ViewEssay(APIView):
     def get(self, request):
         try:
+            names = {
+            "ess": "Essay"
+            }
             essays = Essay.objects.filter(user=request.user)
-            return render(request, 'Checklist/viewEssays.html',{"essays":essays})
+            return render(request, 'Checklist/viewEssays.html',{"essays":essays, "names":names})
         except:
             return render(request, 'Checklist/viewEssays.html', {"error": "You Currently have no Essays"})
 
@@ -46,15 +50,18 @@ class AddTesting(APIView):
         return redirect('studentHome')
 class ViewTesting(APIView):
     def get(self,request):
+        names = {"test": "Testing"}
         tests = Testing.objects.filter(user=request.user)
-        return render(request, 'Checklist/viewScores.html', {"tests":tests})
+        return render(request, 'Checklist/viewScores.html', {"tests":tests, "names":names})
     def post(self,request):
         pass
 class ViewActivity(APIView):
-    def get(self, request):
+    def get(self, request, username):
         try:
             activity = Activity.objects.filter(user = request.user)
-            return render(request, 'Checklist/viewActivity.html', {"activity":activity})
+            profile_user = User.objects.get(username = username)
+            names = {"act": "Activity"}
+            return render(request, 'Checklist/viewActivity.html', {"activity":activity, "profile_user":profile_user, "names":names})
         except:
             return render(request, 'Checklist/viewActivity.html', {"error":"No activities yet"})
 class AddActivity(APIView):
@@ -67,8 +74,9 @@ class AddActivity(APIView):
 class ViewTranscript(APIView):
     def get(self,request):
         try:
+            names = {"tranc": "Transcript"}
             transcript = Transcript.objects.filter(user = request.user)
-            return render(request, 'Checklist/viewTranscripts.html', {"transcript": transcript})
+            return render(request, 'Checklist/viewTranscripts.html', {"transcript": transcript, "names":names})
         except:
             return render(request, 'Checklist/viewTranscripts.html', {"error":"No transcripts uploaded yet"})
 class AddTranscript(APIView):
@@ -82,6 +90,7 @@ class ViewLOR(APIView):
     def get(self,request):
         try:
             lor = LOR.objects.filter(user = request.user)
+            names = {"letter": "LOR"}
             return render(request, 'Checklist/viewLetter.html', {"lor": lor})
         except:
             return render(request, 'Checklist/viewLetter.html', {"error":"No transcripts uploaded yet"})
@@ -147,4 +156,4 @@ def delete(request, model, model_id):
     my_model = getattr(models,model)
     instance = get_object_or_404(my_model,pk = model_id)
     instance.delete()
-    return rendirect('studentHome')
+    return redirect('studentHome')

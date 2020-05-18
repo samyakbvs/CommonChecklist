@@ -52,12 +52,14 @@
 						<th> Essay Name </th>
 						<th> Link </th>
 						<th> Deadline </th>
+            <th>Dlete</th>
 					</tr>
           {% for i in essays %}
 					<tr>
 						<td> {{ i.name }} </td>
 						<td> <a href="{{ i.link }}"> Go to link </a> </td>
 						<td> {{ i.date }} </td>
+              <td> <a href="{% url 'delete' names.ess i.id %}"> <button type="button" class="btn btn-danger" name="button">Delete!</button> </a> </td>
 					</tr>
           {% endfor %}
 			  </table>
