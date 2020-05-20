@@ -29,6 +29,8 @@ class Signup(APIView):
             except User.DoesNotExist:
                 user = User.objects.create_user(request.POST['username'], password= request.POST['password'])
                 profile = StudentProfile(user = user, email = request.POST['email'], name = request.POST['name'], school= request.POST['school'])
+                user.email = request.POST['email']
+                user.save()
                 profile.save()
                 return render(request, 'Checklist/login.html', {"error":"Profile created. You can Login Now!"})
         else:
@@ -44,13 +46,14 @@ class Login(APIView):
                 is_counselor = user.counselorprofile.name
                 return redirect('counselorHome')
             except:
+                user.email = StudentProfile.objects.get(user = user).email
                 return redirect('studentHome')
         error = "Login details error"
-        return redirect('Login')
+        return redirect('Loginuser')
 class Logout(APIView):
     def get(self,request):
         auth.logout(request)
-        return redirect('Login')
+        return redirect('Loginuser')
 
 class ChangePassword(APIView):
     def get(self,request):

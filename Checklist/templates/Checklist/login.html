@@ -44,10 +44,10 @@
     <ul class="navbar-nav">
 
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'Login' %}">Login</a>
+        <a class="nav-link" href="{% url 'Loginuser' %}">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'Signup' %}">Sign up</a>
+        <a class="nav-link" href="{% url 'Signupuser' %}">Sign up</a>
       </li>
 
     </ul>
@@ -60,7 +60,7 @@
 {% if error %}
 {{error}}
 {% endif %}
-  <form method="post" action="{% url 'Login'%}">
+  <form method="post" action="{% url 'Loginuser'%}">
     {% csrf_token %}
   <div class="form-group">
     <!-- <label for="exampleInputEmail1">Email address</label> -->
@@ -74,6 +74,9 @@
   </div>
   <br>
   <button type="submit" class="btn">Submit</button>
+  <div class="text-center mt-4 font-weight-light">
+  <a href="{% url 'password_reset' %}" class="text-primary">Forgot Password?</a>
+</div>
   </form>
   </div>
 

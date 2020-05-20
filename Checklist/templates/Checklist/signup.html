@@ -78,10 +78,10 @@
     <ul class="navbar-nav">
 
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'Login' %}">Login</a>
+        <a class="nav-link" href="{% url 'Loginuser' %}">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'Signup' %}">Sign up</a>
+        <a class="nav-link" href="{% url 'Signupuser' %}">Sign up</a>
       </li>
 
     </ul>
@@ -89,7 +89,7 @@
 </nav>
 <br><br>
     <h1 class="text-center">SignUp</h1>
-    <form class="container form-group needed" action="{% url 'Signup' %}" method="post"><br>
+    <form class="container form-group needed" action="{% url 'Signupuser' %}" method="post"><br>
       {% csrf_token %}
       <input class="form-control"  type="text" name="username" value="" placeholder="Username" required><br>
       <input class="form-control"  type="text" name="name" value="" placeholder="Full Name" required><br>

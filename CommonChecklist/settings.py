@@ -54,6 +54,13 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'CommonChecklist.urls'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'pandeyarjun.242@gmail.com'
+EMAIL_HOST_PASSWORD = 'arjun2003'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
 
 TEMPLATES = [
     {
@@ -76,7 +83,7 @@ WSGI_APPLICATION = 'CommonChecklist.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-# 
+#
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',

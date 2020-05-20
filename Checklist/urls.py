@@ -7,11 +7,11 @@ from student import urls as urlsStudents
 
 urlpatterns = [
     path('',views.Home.as_view(), name = "home"),
-    path('login/',views.Login.as_view(),name="Login"),
-    path('signup/',views.Signup.as_view(),name="Signup"),
-    path('logout', views.Logout.as_view(), name="logout"),
+    path('loginuser/',views.Login.as_view(),name="Loginuser"),
+    path('signupuser/',views.Signup.as_view(),name="Signupuser"),
+    path('logoutuser', views.Logout.as_view(), name="logoutuser"),
     path('counselor/',include(urlsCounselors)),
     path('changePassword/', views.ChangePassword.as_view(), name = "changePassword"),
     path('student/',include(urlsStudents)),
-
+    path('systemaccounts/', include('django.contrib.auth.urls'))
 ]
