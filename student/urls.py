@@ -7,6 +7,7 @@ urlpatterns = [
     path('viewEssays', views.ViewEssay.as_view(), name="viewEssay"),
     path('addEssay', views.AddEssay.as_view(), name="addEssay"),
     path('studentHome', views.Home.as_view(), name="studentHome"),
+    path('trial',views.TrialHome.as_view(), name = "trialHome"),
     path('profile/<str:username>', views.Profile.as_view(), name="profile"),
     path('addTesting', views.AddTesting.as_view(), name="addTesting"),
     path('viewTranscripts', views.ViewTranscript.as_view(), name="viewTranscripts"),

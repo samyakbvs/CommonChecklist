@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from django.contrib import auth
 from django.core.validators import validate_email
 from django.contrib.auth.models import User
-from student.models import StudentProfile
+from student.models import StudentProfile, College
 
 
 # Create your views here.
@@ -11,8 +11,12 @@ class Home(APIView):
     def get(self, request):
         return render(request, 'Checklist/homepage.html') #Uncomment this to revert changes
         # return render(request, 'Checklist/addStudents.html')
-
-
+class About(APIView):
+    def get(self,request):
+        return render(request, 'Checklist/about.html')
+class Team(APIView):
+    def get(self,request):
+        return render(request, 'Checklist/team.html')
 class Signup(APIView):
     def get(self, request):
         return render(request, 'Checklist/signup.html')

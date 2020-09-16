@@ -25,7 +25,10 @@ class Essay(models.Model):
     name = models.CharField(max_length=500)
     date = models.DateField()
 
-
+class Task(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    text = models.CharField(max_length=300)
+    date = models.DateField()
 class Activity(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="activities")
     category = models.CharField(max_length=500)

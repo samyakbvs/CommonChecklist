@@ -11,15 +11,47 @@ from Counselor.models import CounselorProfile
 from datetime import datetime
 from . import models
 import requests
+import collections,numpy
 
 
 # Create your views here.
 class Home(APIView):
     def get(self, request):
         profile = StudentProfile.objects.get(user=request.user)
+        colleges = College.objects.filter(user = request.user)
         deadlines = Deadline.objects.filter(user=request.user)
-        return render(request, 'Checklist/studHome.html', {"profile": profile, 'deadlines': deadlines})
-
+        notes = Notes.objects.filter(user = request.user)
+        return render(request, 'Checklist/studHome.html', {"profile": profile, 'deadlines': deadlines, 'colleges':colleges})
+class TrialHome(APIView):
+    def get(self, request):
+        names = {
+            'col':College
+        }
+        profile = StudentProfile.objects.get(user=request.user)
+        colleges = College.objects.filter(user = request.user)
+        deadlines = Deadline.objects.filter(user=request.user)
+        activity = Activity.objects.filter(user=request.user)
+        essays = Essay.objects.filter(user=request.user)
+        notes = Notes.objects.filter(user = request.user)
+        tests = Testing.objects.filter(user=request.user)
+        testarr = []
+        for i in range(len(essays)):
+            testarr.append(essays[i].date)
+        a = numpy.array(testarr)
+        unique, counts = numpy.unique(a, return_counts=True)
+        x = dict(zip(unique, counts))
+        print(x.keys())
+        numcol = len(colleges)
+        numact = len(activity)
+        numess = len(essays)
+        numtest = len(tests)
+        num = {
+            'numcol':numcol,
+            'numact':numact,
+            'numess':numess,
+            'numtes':numtest,
+        }
+        return render(request, 'Checklist/tryStudHome.html', {"profile": profile, 'deadlines': deadlines, 'colleges':colleges, "names":names, "notes":notes, 'num':num, "x":x})
 
 class AddEssay(APIView):
     def get(self, request):

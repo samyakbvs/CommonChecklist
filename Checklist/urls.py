@@ -12,5 +12,7 @@ urlpatterns = [
     path('counselor/', include(urlsCounselors)),
     path('changePassword/', views.ChangePassword.as_view(), name="changePassword"),
     path('student/', include(urlsStudents)),
-    path('systemaccounts/', include('django.contrib.auth.urls'))
+    path('systemaccounts/', include('django.contrib.auth.urls')),
+    path('about', views.About.as_view(), name = "about"),
+    path('team', views.Team.as_view(), name = "team")
 ]

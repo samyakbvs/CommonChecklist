@@ -83,11 +83,9 @@
 			<div class="act-form">
         <form class="" action="{% url 'addActivity' %}" method="post">
 {% csrf_token %}
-
 				<p class="prompt"> Which type best fits your activity? </p>
-				<select  name="category" id="activite">
-          <option value="Academic">Academic</option>
-					<option value="Art">Art</option>
+				<select  name="category" id="activity">
+          <option value="Art">Art</option>
 					<option value="Athletics: Club">Athletics: Club</option>
 					<option value="Athletics: JV/Varsity">Athletics: JV/Varsity</option>
 					<option value="Career-Oriented">Career-Oriented</option>
