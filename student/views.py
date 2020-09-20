@@ -261,9 +261,14 @@ class search(APIView):
 def recommend(request):
     return render(request, 'recommendations.html')
 
+class MyList(APIView):
+    def get(self,request):
+        return render(request, 'Checklist/collegelist.html')
+    def post(self,request):
+        college_list = College(user=request.user,name=request.POST["college"],date=request.POST["date"],status=request.POST["status"])
+        college_list.save()
+        return render(request, 'Checklist/collegelist.html')
 
-def myList(request):
-    return render(request, 'myList.html')
 
 # Add College Functionality
 

@@ -29,7 +29,7 @@ urlpatterns = [
     # Adding Code below this
     path('search/', views.search.as_view(), name="search"),
     path('recommendations/', views.recommend, name="recommendations"),
-    path('myList/', views.myList, name="myList"),
+    path('myList/', views.MyList.as_view(), name="myList"),
     #     path('addCollege/', views.AddCollege.as_view(), name='addCollege'),
     path('viewCollege/', views.viewColleges.as_view(), name="viewCollege"),
     path('student/search/(?P<unit_id>[0-9]+)/$', views.details, name='search'),

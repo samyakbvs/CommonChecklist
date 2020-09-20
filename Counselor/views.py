@@ -59,7 +59,7 @@ class InviteStudent(APIView):
         current_user = request.user
         student_user = User.objects.get(username=stud)
         print(stud)
-        req = Invite(user=student_user,counselor_name = current_user.counselorprofile.name,token=self.randomString())
+        req = Invite(user=student_user,counselor_name = current_user.counselorprofile.name,token=self.randomString(),email=current_user.counselorprofile.email)
 
         req.save()
 
